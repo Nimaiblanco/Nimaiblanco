@@ -1,54 +1,52 @@
 <div align="center">
-  <img src="https://i.imgur.com/gKk2G4C.png" width="100" alt="Logo de Joystick Pixelado"/>
-  <h1>**👾 Bem-vindo(a) à Base de Operações do [Seu Nickname Gamer] 👾**</h1>
+  <br>
+  
+  <h1>**It's-a-me [Seu Nome/Nickname]**</h1>
+  <p>A passionate [Seu Foco Técnico] developer from Brazil</p>
+  
+  <p>
+    [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]([Seu Link do LinkedIn])
+    [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/[Seu Usuário])
+    [![Email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:[Seu Email])
+    </p>
 </div>
 
 ---
 
-### 🕹️ Sobre o Jogador
+## 🧐 About me:
 
-Sou **[Seu Nome/Nickname]**, um [Desenvolvedor Júnior / Estudante de ADS / Entusiasta de Código] com uma paixão que se divide entre a **otimização de código** e a **conquista de Achievements** nos jogos.
+* 🎓 I'm currently **graduated** in **Análise e Desenvolvimento de Sistemas by FIAP**.
+* 💻 I'm currently learning and focusing on **Web Development** with **JavaScript, React, Node.js**, and **Cloud Computing (AWS)**.
+* 📊 I really enjoy **Data Analysis** and **Problem Solving** (using methodologies like Scrum).
+* 📚 I'm available for **Internship opportunities** (Estágio) in Full Stack or Backend.
+* 🎮 I love **Gaming**, **Animes**, and **Science Fiction**!
+* 💡 I also love creating projects and helping others learn.
 
-Atualmente, meu foco principal (o "Main Quest") é:
-* Dominar o **Desenvolvimento Web Full Stack** (especialmente React, Node.js e APIs).
-* Aprofundar em **[Cloud Computing / Segurança / Outra Área Técnica]**.
+<br>
 
-### 🛠️ Arsenal de Habilidades (Inventory)
+## 🚀 My Skill Tree (Tech Stack):
 
-| Categoria | Armas (Linguagens/Frameworks) | Nível (Skill Level) |
+| Category | Skills/Tech | Level (Progress) |
 | :---: | :---: | :---: |
-| **Front-End** | JavaScript, React, HTML5, CSS3 | ⭐⭐⭐ |
-| **Back-End** | Node.js, Python, [Outra Linguagem] | ⭐⭐⭐ |
-| **Banco de Dados** | SQL, PostgreSQL, NoSQL (MongoDB) | ⭐⭐⭐ |
-| **Tools & OS** | Git, Docker, Linux, Metodologias Ágeis | ⭐⭐⭐⭐ |
-
-### 🔥 GitHub Stats (Power Level)
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Nimaiblanco&show_icons=true&theme=dark&include_all_commits=true&count_private=true" alt="Estatísticas do GitHub"/>
-  <br/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Nimaiblanco&layout=compact&theme=dark" alt="Linguagens mais usadas"/>
-</p>
-
-### 🏆 Achievements (Projetos em Destaque)
-
-* **[Nome do Projeto/Challenge]**: Uma aplicação que resolve [Breve descrição da função]. (Link do Repo)
-* **[Nome do Jogo ou Clone]**: [Mencione se fez algum clone ou projeto temático]. (Link do Repo)
-* **[Seu Último Projeto da FIAP]**: [Breve descrição]. (Link do Repo)
-
-### 💬 Entre em Contato (Multiplayer Co-op)
-
-> *"O melhor código é o código que funciona na primeira tentativa, mas onde estaria a diversão nisso?"*
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]([Seu Link do LinkedIn])
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:[Seu Email])
+| **Front-End** | JavaScript, React, HTML, CSS | 70% |
+| **Back-End** | Node.js, Python, APIs | 60% |
+| **Database** | SQL, PostgreSQL, MongoDB | 65% |
+| **Cloud/Tools** | AWS, Git, Docker, Linux | 50% |
 
 ---
+
 <div align="center">
-  <p>Status: Coding...</p>
+  <h3>🔥 GitHub Stats (XP Gained)</h3>
+  <img src="https://github-readme-stats.vercel.app/api?username=[Seu Usuário]&show_icons=true&theme=dracula&include_all_commits=true&count_private=true" alt="Estatísticas do GitHub"/>
+  <br/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=[Seu Usuário]&layout=compact&theme=dracula" alt="Linguagens mais usadas"/>
 </div>
 
-## Hi there 👋
+---
+
+<div align="center">
+  <p>➡️ Contact Me: **[Seu Email Principal]**</p>
+</div>
 
 <!--
 **Nimaiblanco/Nimaiblanco** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
