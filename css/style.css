@@ -1,119 +1,28 @@
-:root {
-    --bg: #000000;
-    --text: #ffffff;
-    --accent: #38bdf8;
-    --border: #1a1a1a;
-}
-
-body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    scroll-behavior: smooth;
-}
-
-/* Navbar */
-.navbar {
+/* Configuración del fondo de partículas */
+#particles-js {
     position: fixed;
-    top: 40px;
-    right: 50px;
-    display: flex;
-    gap: 40px;
-    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: -1; /* Se mantiene atrás de todo */
+    top: 0;
+    left: 0;
 }
 
-.navbar a {
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 900;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
+/* Efecto Reveal (Animación de aparición) */
+.reveal {
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1.5s ease;
 }
 
-/* Hero Section */
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+/* Ajuste del Hero para que sea transparente y deje ver las partículas */
 .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle at center, #0f172a 0%, #000000 70%);
-}
-
-.hero h1 {
-    font-size: 14vw;
-    line-height: 0.85;
-    margin: 0;
-    text-transform: uppercase;
-    font-weight: 900;
-    letter-spacing: -5px;
-}
-
-.hero p {
-    color: var(--accent);
-    letter-spacing: 12px;
-    margin-top: 20px;
-    font-weight: 400;
-}
-
-/* CV Sections */
-section {
-    padding: 120px 15%;
-    border-bottom: 1px solid var(--border);
-}
-
-.section-title {
-    font-size: 0.8rem;
-    color: var(--accent);
-    letter-spacing: 4px;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-}
-
-.cv-item h3 {
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-.date {
-    color: #64748b;
-    display: block;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-/* Skills Grid */
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.skills-grid span {
-    border: 1px solid var(--border);
-    padding: 15px 30px;
-    font-weight: 900;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.skills-grid span:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-/* Contato */
-.contact-links a {
-    font-size: 3rem;
-    color: var(--text);
-    text-decoration: none;
-    display: block;
-    font-weight: 900;
-    transition: 0.3s;
-}
-
-.contact-links a:hover {
-    padding-left: 20px;
-    color: var(--accent);
+    background: transparent !important;
 }
