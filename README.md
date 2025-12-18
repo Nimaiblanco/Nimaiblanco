@@ -5,7 +5,7 @@
 
 <br>
 
-<img src="https://raw.githubusercontent.com/Nimaiblanco/Nimaiblanco/main/assets/unnamed%20(4).jpg" width="100%" style="border-radius: 10px; border: 2px solid #38bdf8;" />
+<img src="https://raw.githubusercontent.com/Nimaiblanco/Nimaiblanco/main/assets/Apocalipsis.jpg" width="100%" style="border-radius: 10px; border: 2px solid #38bdf8;" />
 
 ---
 
