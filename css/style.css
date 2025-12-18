@@ -2,6 +2,7 @@
     --bg: #000000;
     --text: #ffffff;
     --accent: #38bdf8;
+    --border: #1a1a1a;
 }
 
 body {
@@ -9,10 +10,10 @@ body {
     color: var(--text);
     font-family: 'Inter', sans-serif;
     margin: 0;
-    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-/* Navbar Minimalista */
+/* Navbar */
 .navbar {
     position: fixed;
     top: 40px;
@@ -26,23 +27,22 @@ body {
     color: var(--text);
     text-decoration: none;
     font-weight: 900;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 2px;
 }
 
-/* Hero Section: Tipografía Masiva */
+/* Hero Section */
 .hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
     background: radial-gradient(circle at center, #0f172a 0%, #000000 70%);
 }
 
 .hero h1 {
-    font-size: 15vw;
+    font-size: 14vw;
     line-height: 0.85;
     margin: 0;
     text-transform: uppercase;
@@ -52,34 +52,68 @@ body {
 
 .hero p {
     color: var(--accent);
-    font-size: 1.2rem;
     letter-spacing: 12px;
-    text-transform: uppercase;
-    margin-top: 30px;
-}
-
-/* Cards de Proyectos */
-section {
-    padding: 100px 10%;
-    border-top: 1px solid #1a1a1a;
-}
-
-.project-card {
-    background: #050505;
-    padding: 50px;
-    border: 1px solid #1a1a1a;
-    transition: 0.4s ease;
-}
-
-.project-card:hover {
-    border-color: var(--accent);
-    transform: scale(1.02);
-}
-
-.project-link {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
     margin-top: 20px;
+    font-weight: 400;
+}
+
+/* CV Sections */
+section {
+    padding: 120px 15%;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.cv-item h3 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.date {
+    color: #64748b;
+    display: block;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skills-grid span {
+    border: 1px solid var(--border);
+    padding: 15px 30px;
+    font-weight: 900;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.skills-grid span:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Contato */
+.contact-links a {
+    font-size: 3rem;
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    font-weight: 900;
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+    padding-left: 20px;
+    color: var(--accent);
 }
