@@ -1,44 +1,60 @@
-/* ... (Mantén tus variables :root igual) */
+:root {
+    --bg: #000000;
+    --text: #ffffff;
+    --accent: #38bdf8;
+}
 
-/* 1. FONDO DE PARTÍCULAS: Debe ser el nivel más bajo */
+/* 1. RESET Y CURSOR */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    cursor: none !important; 
+}
+
+/* 2. BODY TRANSPARENTE */
+body {
+    background-color: transparent; 
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* 3. PARTICULAS AL FONDO ABSOLUTO */
 #particles-js {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: #000000; /* El color negro base del sitio */
-    z-index: -1; /* Cambiado a -1 para asegurar que esté detrás de TODO */
     top: 0;
     left: 0;
-    pointer-events: none; /* Para que no interfiera con clicks */
+    width: 100%;
+    height: 100%;
+    background-color: #000000; /* El color negro vive aquí */
+    z-index: -2; /* Forzado al fondo total */
 }
 
-/* 2. CONTENIDO PRINCIPAL: Debe ser transparente para dejar ver el fondo */
+/* 4. EL CONTENEDOR PRINCIPAL DEBE SER TRANSPARENTE */
 #main-wrapper {
     position: relative;
-    z-index: 1; /* Por encima de las partículas */
-    background: transparent !important; /* Fuerza la transparencia */
+    z-index: 1; 
+    background: transparent !important;
     width: 100%;
-    min-height: 100vh;
 }
 
-/* 3. EL CÍRCULO LUPA: Capa superior absoluta */
+/* 5. LA LUPA (CAPA SUPERIOR) */
 .cursor-lupa {
     position: fixed;
     width: 120px;
     height: 120px;
     border: 2px solid var(--accent);
     border-radius: 50%;
-    overflow: hidden; 
-    z-index: 99999; /* El valor más alto posible */
+    overflow: hidden;
+    z-index: 9999;
     pointer-events: none;
     transform: translate(-50%, -50%);
+    background: #000000; /* Fondo negro para que el texto clonado sea legible */
     opacity: 0;
-    background: #000000; /* Fondo negro sólido dentro de la lupa para legibilidad */
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); /* Brillo sutil azul */
     transition: opacity 0.3s ease;
 }
 
-/* 4. CONTENIDO INTERNO DE LA LUPA */
 .lupa-content {
     position: absolute;
     width: 100vw;
@@ -47,10 +63,35 @@
     transform-origin: 0 0;
 }
 
-/* IMPORTANTE: Asegúrate de que el body no tenga otro fondo */
-body {
-    background-color: #000000;
-    margin: 0;
-    padding: 0;
-    cursor: none !important;
+/* ESTILOS VISUALES (RESTAURADOS) */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.hero h1 {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 10vw;
+    line-height: 0.85;
+    text-transform: uppercase;
+}
+
+.navbar {
+    position: fixed;
+    top: 40px;
+    right: 60px;
+    display: flex;
+    gap: 30px;
+    z-index: 500;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
 }
