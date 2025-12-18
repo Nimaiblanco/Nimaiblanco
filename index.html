@@ -8,7 +8,6 @@
     <style>
         :root {
             --bg: #000000;
-            --text: #ffffff;
             --accent: #38bdf8;
         }
 
@@ -23,57 +22,60 @@
         html { scroll-behavior: smooth; }
 
         body {
-            background-color: #000;
-            color: var(--text);
+            background-color: var(--bg);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             width: 100%;
         }
 
-        /* 2. FONDO DE MOLÉCULAS AZULES */
+        /* 2. FONDO DE MOLÉCULAS */
         #particles-js {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
-            background-color: #000;
+            z-index: 1; /* Al fondo */
         }
 
-        /* 3. WRAPPER PRINCIPAL (Transparente para ver la red) */
+        /* 3. CONTENIDO BASE (Invisible fuera de la lupa) */
         #main-wrapper {
             position: relative;
             z-index: 10;
-            background: transparent !important;
+            background: transparent;
             width: 100%;
+            /* El texto es NEGRO para que no se vea sobre el fondo negro */
+            color: #000000; 
+            user-select: none;
         }
 
-        /* 4. LA LUPA */
-        .cursor-lupa {
+        /* 4. LA LUPA (Revelador y Aumento) */
+        #lupa-wrapper {
             position: fixed;
-            width: 130px;
-            height: 130px;
+            width: 160px; 
+            height: 160px;
             border: 2px solid var(--accent);
             border-radius: 50%;
             overflow: hidden;
-            z-index: 99999;
+            z-index: 10000;
             pointer-events: none;
             transform: translate(-50%, -50%);
-            background: #000;
+            background: #000; /* Fondo negro sólido para que no se vea el texto negro de abajo */
             opacity: 0;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
         }
 
-        .lupa-content {
+        /* Contenido blanco dentro de la lupa */
+        #lupa-content {
             position: absolute;
             width: 100vw;
             height: auto;
-            background: #000;
+            color: #ffffff; /* Aquí el texto sí es BLANCO */
             transform-origin: 0 0;
+            background: #000;
         }
 
-        /* 5. DISEÑO DE SECCIONES */
+        /* 5. DISEÑO VISUAL */
         .navbar {
             position: fixed;
             top: 40px;
@@ -84,7 +86,7 @@
         }
 
         .navbar a {
-            color: #fff;
+            color: inherit; /* Seguirá la lógica de invisibilidad/revelación */
             text-decoration: none;
             font-size: 11px;
             letter-spacing: 2px;
@@ -97,59 +99,50 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
         }
 
         .hero h1 {
             font-family: 'Archivo Narrow', sans-serif;
-            font-size: 10vw;
+            font-size: 11vw;
             line-height: 0.85;
-            text-align: center;
             text-transform: uppercase;
         }
 
-        section {
-            padding: 150px 15%;
-            min-height: 60vh;
+        .hero p {
+            color: var(--accent) !important; /* El subtítulo siempre visible */
+            letter-spacing: 5px;
+            font-weight: 900;
+            margin-top: 20px;
+            font-size: 1rem;
         }
 
+        section { padding: 150px 15%; }
+
         .section-title {
-            color: var(--accent);
+            color: var(--accent) !important; /* Títulos de sección siempre visibles */
             margin-bottom: 50px;
             letter-spacing: 3px;
             font-size: 1rem;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+        .skill-item h3 { font-size: 3rem; text-transform: uppercase; margin-bottom: 15px; }
+        .skill-item p { font-size: 1.2rem; line-height: 1.6; }
+
+        footer {
+            padding: 100px 15%;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #222; /* Casi invisible fuera de lupa */
         }
-
-        .skill-item h3 { font-size: 2.5rem; margin-bottom: 15px; }
-        .skill-item p { opacity: 0.7; font-size: 1.2rem; line-height: 1.6; }
-
-        .contact-links {
-            display: flex;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .contact-links a {
-            color: white;
-            font-size: 3rem;
-            text-decoration: none;
-            font-weight: 900;
-        }
-
-        .contact-links a:hover { color: var(--accent); }
     </style>
 </head>
 <body>
 
     <div id="particles-js"></div>
 
-    <div class="cursor-lupa" id="lupa-wrapper">
-        <div class="lupa-content" id="lupa-content"></div>
+    <div id="lupa-wrapper">
+        <div id="lupa-content"></div>
     </div>
 
     <div id="main-wrapper">
@@ -162,7 +155,7 @@
 
             <div class="hero">
                 <h1>BLANCO<br>NIMAI</h1>
-                <p style="color:var(--accent); letter-spacing: 5px; margin-top: 20px; font-weight: 900;">SOFTWARE DEVELOPER</p>
+                <p>SOFTWARE DEVELOPER</p>
             </div>
 
             <section id="experiencia">
@@ -172,42 +165,17 @@
                     <p>Especialista em Java e Spring Boot, focado em arquitetura escalável e interfaces de alto impacto visual.</p>
                 </div>
             </section>
-
-            <section id="skills">
-                <h2 class="section-title">02. SKILLS</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <h3>Backend</h3>
-                        <p>Java, Spring Boot, Node.js, PostgreSQL.</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>Frontend</h3>
-                        <p>React, Next.js, GSAP, CSS Advanced.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contato">
-                <h2 class="section-title">03. CONTATO</h2>
-                <div class="contact-links">
-                    <a href="mailto:hola@tuweb.com">EMAIL</a>
-                    <a href="#">LINKEDIN</a>
-                </div>
-            </section>
-
-            <footer style="padding: 100px 15%; opacity: 0.3; font-size: 10px; letter-spacing: 2px;">
-                © 2025 BLANCO NIMAI
-            </footer>
-        </div>
+            </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        const contentToCopy = document.getElementById('content-to-copy');
+        const contentOriginal = document.getElementById('content-to-copy');
         const lupaContent = document.getElementById('lupa-content');
         const lupaWrapper = document.getElementById('lupa-wrapper');
 
-        lupaContent.innerHTML = contentToCopy.innerHTML;
+        // Clonamos el contenido para la lupa
+        lupaContent.innerHTML = contentOriginal.innerHTML;
 
         document.addEventListener('mousemove', (e) => {
             const x = e.clientX;
@@ -218,58 +186,25 @@
             lupaWrapper.style.left = `${x}px`;
             lupaWrapper.style.top = `${y}px`;
 
+            // Configuración del aumento (zoom)
             const zoom = 1.6;
-            const moveX = -(x * zoom) + 65; 
-            const moveY = -((y + scrollY) * zoom) + 65;
+            const radius = 80; // Mitad del ancho del círculo (160/2)
+
+            // Alineación matemática exacta para el efecto de lupa
+            const moveX = -(x * zoom) + radius;
+            const moveY = -((y + scrollY) * zoom) + radius;
 
             lupaContent.style.transform = `translate(${moveX}px, ${moveY}px) scale(${zoom})`;
         });
 
-        /* CONFIGURACIÓN DE FORMACIÓN MOLECULAR */
+        /* PARTÍCULAS (MOLÉCULAS AZULES) */
         particlesJS('particles-js', {
             "particles": {
-                "number": { 
-                    "value": 100, 
-                    "density": { "enable": true, "value_area": 800 } 
-                },
+                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#38bdf8" },
-                "shape": { "type": "circle" },
-                "opacity": { 
-                    "value": 0.5, 
-                    "random": false 
-                },
-                "size": { 
-                    "value": 3, 
-                    "random": true 
-                },
-                "line_linked": { 
-                    "enable": true, 
-                    "distance": 150, 
-                    "color": "#38bdf8", 
-                    "opacity": 0.4, 
-                    "width": 1 
-                },
-                "move": { 
-                    "enable": true, 
-                    "speed": 2, 
-                    "direction": "none", 
-                    "random": false, 
-                    "straight": false, 
-                    "out_mode": "out", 
-                    "bounce": false 
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": { "enable": true, "mode": "grab" },
-                    "onclick": { "enable": true, "mode": "push" }
-                },
-                "modes": {
-                    "grab": { "distance": 200, "line_linked": { "opacity": 0.8 } }
-                }
-            },
-            "retina_detect": true
+                "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.3, "width": 1 },
+                "move": { "enable": true, "speed": 1.5 }
+            }
         });
     </script>
 </body>
