@@ -45,19 +45,31 @@ body {
 .navbar a:hover { opacity: 1; color: var(--accent); }
 
 /* CURSOR */
+/* CURSOR CON EFECTO LUPA REAL */
 #cursor {
     position: fixed;
-    width: 30px; height: 30px;
+    width: 30px;
+    height: 30px;
     border: 1px solid var(--accent);
     border-radius: 50%;
     pointer-events: none;
-    z-index: 100000; /* Debajo del navbar para no bloquear clics */
+    z-index: 100000;
     transform: translate(-50%, -50%);
-    mix-blend-mode: difference;
-    transition: width 0.3s, height 0.3s;
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                height 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                backdrop-filter 0.3s;
+    backdrop-filter: blur(0px) brightness(1); /* Estado inicial */
 }
 
-#cursor.active { width: 120px; height: 120px; background: rgba(56, 189, 248, 0.1); }
+#cursor.active {
+    width: 140px; 
+    height: 140px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    /* El truco del aumento visual */
+    backdrop-filter: blur(0px) brightness(1.2) contrast(1.2);
+    transform: translate(-50%, -50%) scale(1.1); /* Aumenta un 10% el tamaño visual */
+}
 
 /* SECCIONES Y TEXTOS */
 #main-wrapper { position: relative; z-index: 10; }
