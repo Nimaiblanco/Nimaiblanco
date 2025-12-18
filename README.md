@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/0b613142-a94b-41bd-8d09-f0643a630dfe" width="200" alt="Nimai Blanco Avatar" style="border-radius: 500px;">
+  <img src="https://github.com/user-attachments/assets/0b613142-a94b-41bd-8d09-f0643a630dfe" width="200" alt="Nimai Blanco Avatar" style="border-radius: 50px;">
 
 
   # Nimai Blanco👋
