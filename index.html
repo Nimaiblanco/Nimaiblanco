@@ -27,7 +27,7 @@
         <div class="cv-item">
             <h3>Desenvolvedor Full Stack</h3>
             <span class="date">Atualmente</span>
-            <p>Especialista em Java e Spring Boot, focado em criar soluções robustas e interfaces de alto impacto.</p>
+            <p>Especialista em Java e Spring Boot, focado em criar soluções robustas e interfaces de alto impacto com foco em performance.</p>
         </div>
     </section>
 
@@ -38,6 +38,7 @@
             <div class="skill-tag">SPRING BOOT</div>
             <div class="skill-tag">MYSQL</div>
             <div class="skill-tag">JAVASCRIPT</div>
+            <div class="skill-tag">GIT</div>
         </div>
     </section>
 
@@ -45,7 +46,7 @@
         <h2 class="section-title">CONTATO</h2>
         <div class="contact-links">
             <a href="https://www.linkedin.com/in/nimaiblanco108/" target="_blank">LINKEDIN</a>
-            <a href="mailto:tuemail@ejemplo.com">EMAIL</a>
+            <a href="mailto:nimaiblanco@ejemplo.com">EMAIL</a>
         </div>
     </section>
 
@@ -72,14 +73,13 @@
             }
         });
 
-        window.addEventListener('scroll', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(el => {
-                let windowHeight = window.innerHeight;
-                let revealTop = el.getBoundingClientRect().top;
-                if (revealTop < windowHeight - 100) el.classList.add('active');
+        const reveal = () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
             });
-        });
+        };
+        window.addEventListener('scroll', reveal);
+        reveal();
     </script>
 </body>
 </html>
