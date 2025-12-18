@@ -17,11 +17,11 @@
 
         #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 
-        /* LUPA DINÁMICA - Corregida */
+        /* LUPA DINÁMICA - Tamaño equilibrado */
         #lupa-wrapper {
             position: fixed;
-            width: 20px;   /* Punto inicial pequeño */
-            height: 20px;
+            width: 30px;   /* Tamaño inicial normal/elegante */
+            height: 30px;
             border: 1px solid var(--accent);
             border-radius: 50%;
             overflow: hidden;
@@ -30,18 +30,18 @@
             transform: translate(-50%, -50%);
             background: #000;
             opacity: 0;
-            /* Transición fluida de tamaño */
-            transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
-                        height 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
-                        box-shadow 0.3s ease;
+            /* Transición más orgánica */
+            transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
+                        height 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
+                        box-shadow 0.4s ease;
             box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
         }
 
         #lupa-wrapper.active {
-            width: 180px;  /* Tamaño al interactuar */
-            height: 180px;
-            border-width: 2px;
-            box-shadow: 0 0 35px rgba(56, 189, 248, 0.5);
+            width: 120px;  /* Tamaño de reveal moderado */
+            height: 120px;
+            border-width: 1px; /* Borde fino para estilo premium */
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
         }
 
         #lupa-content {
@@ -50,7 +50,7 @@
             color: #ffffff;
             transform-origin: 0 0;
             background: #000;
-            transition: none; /* Evita lag en el movimiento */
+            transition: none; 
         }
 
         #lupa-content .navbar { position: absolute !important; }
@@ -66,7 +66,7 @@
         .hero p { color: var(--accent) !important; letter-spacing: 5px; font-weight: 900; margin-top: 20px; }
 
         section { padding: 150px 15%; }
-        .section-title { color: var(--accent) !important; margin-bottom: 50px; letter-spacing: 3px; }
+        .section-title { color: var(--accent) !important; margin-bottom: 50px; letter-spacing: 3px; font-size: 0.9rem; }
 
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; }
         .skill-item h3 { color: var(--accent); font-size: 2.5rem; margin-bottom: 20px; border-bottom: 1px solid rgba(56, 189, 248, 0.2); padding-bottom: 15px; text-transform: uppercase; font-family: 'Archivo Narrow', sans-serif; }
@@ -152,7 +152,7 @@
             lupaWrapper.style.top = `${y}px`;
 
             const zoom = 1.6;
-            // El radio ahora se calcula dinámicamente según el tamaño actual del cursor
+            // El radio dinámico permite que la lupa crezca sin "saltar"
             const currentRadius = lupaWrapper.offsetWidth / 2; 
 
             const moveX = -(x * zoom) + currentRadius;
@@ -161,7 +161,6 @@
             lupaContent.style.transform = `translate(${moveX}px, ${moveY}px) scale(${zoom})`;
         });
 
-        // Lógica para agrandar al pasar sobre elementos con clase 'hover-trigger'
         const hoverItems = document.querySelectorAll('.hover-trigger');
         hoverItems.forEach(item => {
             item.addEventListener('mouseenter', () => lupaWrapper.classList.add('active'));
