@@ -11,6 +11,7 @@
             --accent: #38bdf8;
         }
 
+        /* 1. RESET Y CURSOR */
         * { 
             margin: 0; 
             padding: 0; 
@@ -27,6 +28,7 @@
             width: 100%;
         }
 
+        /* 2. FONDO DE MOLÉCULAS (PUNTOS PEQUEÑOS) */
         #particles-js {
             position: fixed;
             top: 0; left: 0;
@@ -34,16 +36,17 @@
             z-index: 1;
         }
 
-        /* CONTENIDO BASE */
+        /* 3. CONTENIDO BASE */
         #main-wrapper {
             position: relative;
             z-index: 10;
             background: transparent;
             width: 100%;
-            color: #222; /* Texto muy oscuro para efecto revelación */
+            color: #222; /* Casi invisible sobre negro */
+            user-select: none;
         }
 
-        /* LA LUPA */
+        /* 4. LA LUPA */
         #lupa-wrapper {
             position: fixed;
             width: 160px; 
@@ -63,17 +66,17 @@
             position: absolute;
             width: 100vw;
             height: auto;
-            color: #ffffff;
+            color: #ffffff; /* Revela texto en blanco */
             transform-origin: 0 0;
             background: #000;
         }
 
-        /* FIX: Evita que la navbar clonada desaparezca o se vuelva negra */
+        /* FIX: Evita que la navbar clonada se pierda */
         #lupa-content .navbar {
-            position: absolute !important; /* En la lupa no debe ser fixed */
+            position: absolute !important; 
         }
 
-        /* DISEÑO */
+        /* 5. DISEÑO VISUAL */
         .navbar {
             position: fixed;
             top: 40px;
@@ -159,6 +162,7 @@
         const lupaContent = document.getElementById('lupa-content');
         const lupaWrapper = document.getElementById('lupa-wrapper');
 
+        // Sincronizar contenido inicial
         lupaContent.innerHTML = contentOriginal.innerHTML;
 
         document.addEventListener('mousemove', (e) => {
@@ -173,21 +177,42 @@
             const zoom = 1.6;
             const radius = 80; 
 
-            // La clave es que moveY debe compensar el scroll 
-            // pero la navbar al ser fixed requiere un trato especial en el clon
             const moveX = -(x * zoom) + radius;
             const moveY = -((y + scrollY) * zoom) + radius;
 
             lupaContent.style.transform = `translate(${moveX}px, ${moveY}px) scale(${zoom})`;
         });
 
+        /* PARTÍCULAS AJUSTADAS (Puntos pequeños) */
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 100 },
+                "number": { "value": 120, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#38bdf8" },
-                "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.3, "width": 1 },
-                "move": { "enable": true, "speed": 1.5 }
-            }
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.4, "random": false },
+                "size": { 
+                    "value": 1.2, // Puntos pequeños
+                    "random": true 
+                },
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 150, 
+                    "color": "#38bdf8", 
+                    "opacity": 0.2, // Líneas más tenues
+                    "width": 1 
+                },
+                "move": { "enable": true, "speed": 1 }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" }
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } }
+                }
+            },
+            "retina_detect": true
         });
     </script>
 </body>
