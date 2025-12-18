@@ -20,15 +20,18 @@ body {
 
 .cursor-follower {
     position: fixed;
-    width: 20px;
-    height: 20px;
-    background: rgba(56, 189, 248, 0.2);
-    border: 1px solid var(--accent);
+    /* Agrandamos el tamaño: de 20px a 50px */
+    width: 50px; 
+    height: 50px; 
+    background: rgba(56, 189, 248, 0.15); /* Color de fondo suave */
+    border: 2px solid var(--accent); /* Borde un poco más grueso */
     border-radius: 50%;
     z-index: 10000;
     pointer-events: none;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 15px var(--accent);
+    /* Importante: Mantiene el círculo centrado en la punta del mouse */
+    transform: translate(-50%, -50%); 
+    box-shadow: 0 0 25px var(--accent); /* Resplandor neón más amplio */
+    transition: transform 0.1s ease-out;
 }
 
 /* NAVBAR: Minimalista y elegante */
