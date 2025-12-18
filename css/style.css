@@ -4,7 +4,11 @@
     --text-main: #ffffff;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
+/* RESET PROFESIONAL */
+* { 
+    margin: 0; padding: 0; box-sizing: border-box; 
+    cursor: none !important; 
+}
 
 body { 
     background-color: var(--bg); 
@@ -20,6 +24,7 @@ body {
     pointer-events: none;
 }
 
+/* LUPA / CURSOR PERSONALIZADO */
 #lupa-wrapper {
     position: fixed;
     width: 40px; height: 40px;
@@ -30,61 +35,84 @@ body {
     pointer-events: none;
     transform: translate(-50%, -50%);
     background: var(--bg);
+    opacity: 1 !important;
 }
 
-#lupa-wrapper.active { width: 160px; height: 160px; }
+#lupa-wrapper.active {
+    width: 170px; height: 170px;
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.4);
+}
 
-#lupa-content { position: absolute; width: 100vw; }
+#lupa-content { 
+    position: absolute; 
+    width: 100vw; 
+}
 
+/* CONTENIDO */
 #main-wrapper { position: relative; z-index: 10; }
 
 .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
 
+/* NOMBRE BLANCO COMPACTO */
 .hero h1 { 
     font-family: 'Archivo Narrow', sans-serif; 
-    font-size: 7vw; /* Tamaño moderado según imagen */
+    font-size: 7.5vw; 
     line-height: 0.8; 
     text-transform: uppercase; 
     color: #ffffff !important; 
     text-align: center;
+    letter-spacing: -2px;
 }
 
 .hero p { 
     letter-spacing: 4px; 
     font-weight: 900; 
-    color: var(--accent);
-    font-size: 0.75rem;
-    margin-top: 10px;
+    color: var(--accent); 
+    font-size: 0.75rem; 
+    margin-top: 15px; 
 }
 
-section { padding: 80px 15%; }
+/* SECCIONES ESTANDARIZADAS */
+section { padding: 100px 15%; }
 
 .section-title { 
     color: var(--accent); 
-    font-size: 0.8rem; /* Pequeño según imagen */
-    letter-spacing: 2px;
-    margin-bottom: 30px;
+    font-size: 0.85rem; 
+    letter-spacing: 3px; 
+    margin-bottom: 40px; 
+    font-weight: 900; 
 }
 
-.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.skills-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 60px; 
+}
 
 .skill-item h3 { 
-    font-size: 2.2rem; /* Tamaño de Backend/Frontend */
+    font-size: 2.5rem; 
     color: var(--accent); 
-    margin-bottom: 10px;
-    font-family: 'Archivo Narrow', sans-serif;
+    margin-bottom: 10px; 
+    font-family: 'Archivo Narrow', sans-serif; 
 }
 
-.skill-item p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px; }
+.skill-item p { font-size: 1rem; opacity: 0.8; }
 
-.contact-links { display: flex; flex-direction: column; }
+/* CONTACTO VERTICAL MASIVO */
+.contact-links { display: flex; flex-direction: column; gap: 5px; }
 
 .contact-links a { 
-    font-size: 4.5rem; /* Muy grande según imagen */
+    font-size: 5rem; 
     color: #fff; 
     text-decoration: none; 
     font-weight: 900; 
-    line-height: 1;
+    line-height: 0.9;
+    transition: transform 0.3s ease;
 }
 
-footer { padding: 40px; text-align: center; opacity: 0.3; font-size: 0.7rem; }
+.contact-links a:hover { 
+    transform: translateX(20px); 
+    color: var(--accent); 
+}
+
+footer { padding: 60px; text-align: center; opacity: 0.3; font-size: 0.7rem; }
