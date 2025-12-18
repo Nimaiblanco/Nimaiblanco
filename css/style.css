@@ -1,139 +1,56 @@
-:root {
-    --bg: #000000;
-    --text: #ffffff;
-    --accent: #38bdf8;
-}
-
-/* 1. Reset base */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    cursor: none !important; /* Elimina el cursor normal */
-}
-
-html, body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-    width: 100%;
-    min-height: 100vh;
-}
-
-/* 2. Partículas al fondo (Nivel 0) */
-#particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0; 
-    background-color: #000;
-}
-
-/* 3. Contenedor de contenido (Nivel 1) */
-#main-wrapper {
-    position: relative;
-    z-index: 10; 
-    background: transparent !important; /* Permite ver las partículas */
-}
-
-/* 4. LA LUPA (Nivel Superior) */
-.cursor-lupa {
-    position: fixed;
-    width: 130px; 
-    height: 130px;
-    border: 2px solid var(--accent);
-    border-radius: 50%;
-    overflow: hidden; 
-    z-index: 99999;
-    pointer-events: none;
-    transform: translate(-50%, -50%); 
-    background: #000; 
-    opacity: 0; /* Se activa con el JS */
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-}
-
-/* 5. Contenido dentro de la lupa */
-.lupa-content {
-    position: absolute;
-    width: 100vw; 
-    height: auto;
-    transform-origin: 0 0;
-    background: #000; /* Fondo negro para que el zoom sea legible */
-    pointer-events: none;
-}
-
-/* 6. Estilos Visuales */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: transparent !important;
-}
-
-.hero h1 {
-    font-family: 'Archivo Narrow', sans-serif;
-    font-size: 10vw;
-    line-height: 0.85;
-    text-transform: uppercase;
-}
-
-.hero p {
+/* GRID DE SKILLS */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
     margin-top: 20px;
-    letter-spacing: 5px;
+}
+
+.skill-category h3 {
     color: var(--accent);
-    text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+    padding-bottom: 10px;
 }
 
-.navbar {
-    position: fixed;
-    top: 40px;
-    right: 60px;
-    display: flex;
-    gap: 35px;
-    z-index: 1000; /* Por debajo de la lupa pero sobre el contenido */
+.skill-category ul {
+    list-style: none;
 }
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 2px;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.navbar a:hover {
-    opacity: 1;
-    color: var(--accent);
-}
-
-section { 
-    padding: 120px 15%; 
-    background: transparent !important; 
-    position: relative;
-}
-
-.section-title { 
-    color: var(--accent); 
-    margin-bottom: 40px; 
-    font-size: 1rem;
-    letter-spacing: 3px;
-}
-
-.cv-item h3 {
-    font-size: 2.5rem;
+.skill-category li {
+    font-size: 1.5rem;
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
-.cv-item p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    opacity: 0.8;
+/* CONTACTO */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-btn {
+    padding: 15px 30px;
+    border: 1px solid var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.contact-btn:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+/* FOOTER */
+footer {
+    padding: 60px 15%;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    opacity: 0.5;
 }
