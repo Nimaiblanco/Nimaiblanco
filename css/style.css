@@ -22,14 +22,14 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 60px; /* Tamaño grande inicial */
+    width: 60px; /* Tamaño grande */
     height: 60px;
     background: rgba(56, 189, 248, 0.1);
-    border: 2px solid var(--accent);
+    border: 2px solid #38bdf8;
     border-radius: 50%;
     z-index: 10000;
     pointer-events: none;
-    /* Esto es vital para que no salte de posición */
+    /* Transición suave para cuando cambie de tamaño al tocar links */
     transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
     will-change: transform;
 }
