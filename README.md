@@ -17,7 +17,7 @@
 ### 🚀 Sobre Mí
 Soy un desarrollador apasionado por la **arquitectura limpia** y la **estabilidad del software**. Mi fuerte es el ecosistema de **Java/Spring**, pero mi versatilidad en el Frontend me permite adaptar la tecnología al problema: desde la rapidez de **React** y la estructura de **Angular**, hasta la seguridad absoluta de **Elm**.
 
-- 🔭 **Proyecto Estrella:** [BioPulse](https://github.com/Nimaiblanco/BioPulse) - Monitoreo en tiempo real con Spring Boot y Elm.
+- 🔭 **Proyecto:** [BioPulse](https://github.com/Nimaiblanco/BioPulse) - Monitoreo en tiempo real con Spring Boot y Elm.
 - 💡 **Enfoque:** Creo en el código tipado y en sistemas que no fallan en producción.
 
 ---
