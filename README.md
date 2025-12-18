@@ -2,7 +2,7 @@
   <img src="https://github.com/user-attachments/assets/be839c96-683c-408c-9656-509d5e6b15d0" width="100%" alt="Nimai Blanco Horizon" style="border-radius: 10px;">
 
 
-  # Nimai Pandit Blanco Perez 👋
+  # Nimai Blanco👋
   ### **Full Stack Developer | Java Specialist | Software Architecture**
 
   ---
