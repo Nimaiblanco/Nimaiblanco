@@ -1,7 +1,7 @@
 :root {
     --bg: #000000;
-    --accent: #38bdf8;
-    --text-dim: #1a1a1a; /* Texto casi invisible fuera de la lupa */
+    --accent: #ffffff;    /* Todo en blanco */
+    --text-main: #ffffff; /* El texto principal ahora es blanco y visible */
 }
 
 /* 1. RESET Y CURSOR */
@@ -17,6 +17,7 @@ body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     width: 100%;
+    color: var(--text-main); /* El sitio ya no es oscuro */
 }
 
 /* 2. FONDO DE PARTÍCULAS */
@@ -27,56 +28,47 @@ body {
     z-index: 1;
 }
 
-/* 3. LUPA DINÁMICA (Efecto de crecimiento corregido) */
+/* 3. LUPA DINÁMICA (Transparente y Elegante) */
 #lupa-wrapper {
     position: fixed;
-    width: 30px;   /* Tamaño inicial elegante */
+    width: 30px;   
     height: 30px;
-    border: 1px solid var(--accent);
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde sutil */
     border-radius: 50%;
     overflow: hidden;
     z-index: 10000;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    background: #000;
+    background: transparent; /* Quitamos el fondo negro */
     opacity: 0;
-    /* Transición fluida para que no sea brusco */
     transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
                 height 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
-                box-shadow 0.4s ease,
-                border-width 0.3s ease;
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+                box-shadow 0.4s ease;
 }
 
-/* Clase que se activa mediante JS al pasar sobre .hover-trigger */
 #lupa-wrapper.active {
-    width: 120px;  /* Tamaño de reveal moderado */
+    width: 120px;  
     height: 120px;
-    border-width: 1px; /* Borde más fino al ser más grande */
-    box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+    border-color: var(--accent);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(1px); /* Efecto cristal opcional */
 }
 
 #lupa-content {
     position: absolute;
     width: 100vw;
-    height: auto;
-    color: #ffffff; /* Texto que se revela en blanco */
+    color: var(--accent); 
     transform-origin: 0 0;
-    background: #000;
+    background: transparent; /* Transparente para ver el fondo */
 }
 
-/* Fix para que la navbar clonada no flote mal */
-#lupa-content .navbar {
-    position: absolute !important; 
-}
-
-/* 4. CONTENIDO BASE */
+/* 4. CONTENIDO BASE (Visible por defecto) */
 #main-wrapper {
     position: relative;
     z-index: 10;
     background: transparent;
     width: 100%;
-    color: var(--text-dim); /* Texto oscuro fuera de la lupa */
+    color: var(--text-main); 
     user-select: none;
 }
 
@@ -89,9 +81,13 @@ body {
 }
 
 .navbar a {
-    color: inherit; text-decoration: none;
+    color: var(--text-main); 
+    text-decoration: none;
     font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    opacity: 0.7;
+    transition: 0.3s;
 }
+.navbar a:hover { opacity: 1; }
 
 .hero {
     height: 100vh;
@@ -102,11 +98,13 @@ body {
 .hero h1 {
     font-family: 'Archivo Narrow', sans-serif;
     font-size: 11vw; line-height: 0.85; text-transform: uppercase;
+    color: var(--accent);
 }
 
 .hero p {
-    color: var(--accent) !important; /* El subtítulo siempre brilla */
+    color: var(--accent) !important;
     letter-spacing: 5px; font-weight: 900; margin-top: 20px; font-size: 1rem;
+    opacity: 0.9;
 }
 
 section { padding: 150px 15%; }
@@ -121,20 +119,21 @@ section { padding: 150px 15%; }
 .skill-item h3 {
     color: var(--accent);
     font-size: 2.5rem; margin-bottom: 20px;
-    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 15px; text-transform: uppercase;
     font-family: 'Archivo Narrow', sans-serif;
 }
 
-.skill-item p { font-size: 1.2rem; line-height: 1.6; }
+.skill-item p { font-size: 1.2rem; line-height: 1.6; opacity: 0.8; }
 
 .contact-links { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 30px; }
 .contact-links a {
-    color: inherit; text-decoration: none;
+    color: var(--text-main); 
+    text-decoration: none;
     font-size: 4rem; font-weight: 900; letter-spacing: -2px;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: 0.4s;
 }
-.contact-links a:hover { color: var(--accent) !important; transform: skewX(-10deg); }
+.contact-links a:hover { transform: skewX(-10deg); color: var(--accent); }
 
 footer { padding: 80px 15%; font-size: 0.7rem; letter-spacing: 3px; opacity: 0.4; }
 
