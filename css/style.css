@@ -1,0 +1,88 @@
+/* Importar tipografía impactante */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+
+:root {
+    --bg-color: #000000;
+    --accent-color: #38bdf8;
+    --text-main: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Fondo animado fluido (Simulando el video) */
+.hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #0f172a 0%, #000000 70%);
+    position: relative;
+}
+
+/* Nombre Gigante */
+.hero h1 {
+    font-size: 15vw;
+    line-height: 0.8;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 2;
+    letter-spacing: -5px;
+    animation: fadeIn 2s ease-out;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+/* Estilo de los Proyectos */
+section {
+    padding: 100px 10%;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.card {
+    border: 1px solid #1e293b;
+    padding: 40px;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    background: #0f172a;
+    border-color: var(--accent-color);
+    transform: scale(1.02);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive para celular */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 20vw; }
+    .project-grid { grid-template-columns: 1fr; }
+}
