@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/0b613142-a94b-41bd-8d09-f0643a630dfe" width="100%" alt="Nimai Blanco Workspace" style="border-radius: 10px;">
+  <img src="https://github.com/user-attachments/assets/d93a1914-2936-460d-b0da-c53ba89331a5" width="100%" alt="Nimai Blanco Workspace" style="border-radius: 10px;">
+
 
   # Nimai Pandit Blanco Perez 👋
   ### **Engenheiro de Software | Graduado em ADS pela FIAP**
