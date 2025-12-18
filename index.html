@@ -8,122 +8,68 @@
     <style>
         :root {
             --bg: #000000;
-            --accent: #ffffff; /* Todo cambiado a blanco */
-            --text-main: #ffffff; /* Texto principal ahora es blanco y visible */
+            --accent: #ffffff; /* Color principal ahora es blanco */
+            --text-base: #ffffff; /* Texto siempre visible */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
-        
-        body { 
-            background-color: var(--bg); 
-            font-family: 'Inter', sans-serif; 
-            overflow-x: hidden; 
-            width: 100%; 
-            color: var(--text-main); /* Visibilidad total desde el inicio */
-        }
+        body { background-color: var(--bg); font-family: 'Inter', sans-serif; overflow-x: hidden; width: 100%; color: var(--text-base); }
 
         #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 
-        /* LUPA DINÁMICA (Efecto de cristal/aumento sin fondo oscuro) */
+        /* LUPA - Ahora es un brillo/zoom, no una linterna */
         #lupa-wrapper {
             position: fixed;
-            width: 30px;   
-            height: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.5); /* Borde sutil */
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 50%;
             overflow: hidden;
             z-index: 10000;
             pointer-events: none;
             transform: translate(-50%, -50%);
-            background: transparent; /* Ya no tapa el sitio con negro */
+            background: transparent; /* Transparente para ver el resto */
             opacity: 0;
-            transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
-                        height 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
-                        box-shadow 0.4s ease;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            transition: width 0.4s ease, height 0.4s ease, border 0.3s ease;
         }
 
         #lupa-wrapper.active {
-            width: 120px;  
-            height: 120px;
-            border-color: var(--accent);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(1px); /* Ligero efecto de lente */
+            width: 150px;
+            height: 150px;
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
         }
 
         #lupa-content {
             position: absolute;
             width: 100vw;
-            color: var(--accent);
+            color: #ffffff;
             transform-origin: 0 0;
-            background: transparent; 
-            transition: none; 
+            background: var(--bg); /* Fondo igual al body */
         }
 
-        #lupa-content .navbar { position: absolute !important; }
-
-        /* CONTENIDO BASE (Visible) */
+        /* CONTENIDO BASE - VISIBLE */
         #main-wrapper { 
             position: relative; 
             z-index: 10; 
-            user-select: none; 
+            color: #ffffff; /* TEXTO BLANCO VISIBLE */
         }
 
         .navbar { position: fixed; top: 40px; right: 60px; display: flex; gap: 30px; z-index: 1000; }
-        .navbar a { 
-            color: inherit; 
-            text-decoration: none; 
-            font-size: 11px; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            opacity: 0.7; 
-            transition: 0.3s;
-        }
+        .navbar a { color: #ffffff; text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; transition: 0.3s; }
         .navbar a:hover { opacity: 1; }
 
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .hero h1 { 
-            font-family: 'Archivo Narrow', sans-serif; 
-            font-size: 11vw; 
-            line-height: 0.85; 
-            text-transform: uppercase; 
-            color: var(--accent);
-        }
-        .hero p { 
-            color: var(--accent) !important; 
-            letter-spacing: 5px; 
-            font-weight: 900; 
-            margin-top: 20px; 
-            opacity: 0.8;
-        }
+        .hero h1 { font-family: 'Archivo Narrow', sans-serif; font-size: 11vw; line-height: 0.85; text-transform: uppercase; color: #ffffff; }
+        .hero p { color: #38bdf8; letter-spacing: 5px; font-weight: 900; margin-top: 20px; }
 
         section { padding: 150px 15%; }
-        .section-title { color: var(--accent) !important; margin-bottom: 50px; letter-spacing: 3px; font-size: 0.9rem; }
+        .section-title { color: #38bdf8; margin-bottom: 50px; letter-spacing: 3px; }
 
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; }
-        .skill-item h3 { 
-            color: var(--accent); 
-            font-size: 2.5rem; 
-            margin-bottom: 20px; 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
-            padding-bottom: 15px; 
-            text-transform: uppercase; 
-            font-family: 'Archivo Narrow', sans-serif; 
-        }
-        .skill-item p { font-size: 1.2rem; line-height: 1.6; opacity: 0.8; }
+        .skill-item h3 { color: #ffffff; font-size: 2.5rem; margin-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 15px; }
 
-        .contact-links { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 30px; }
-        .contact-links a { 
-            color: inherit; 
-            text-decoration: none; 
-            font-size: 4rem; 
-            font-weight: 900; 
-            letter-spacing: -2px; 
-            transition: 0.4s; 
-        }
-        .contact-links a:hover { color: var(--accent) !important; transform: skewX(-10deg); }
-
-        footer { padding: 80px 15%; font-size: 0.7rem; letter-spacing: 3px; opacity: 0.4; }
+        footer { padding: 80px 15%; font-size: 0.7rem; opacity: 0.4; text-transform: uppercase; }
     </style>
 </head>
 <body>
@@ -151,29 +97,7 @@
                 <h2 class="section-title">01. EXPERIÊNCIA</h2>
                 <div class="skill-item">
                     <h3 class="hover-trigger">Full Stack Developer</h3>
-                    <p>Especialista em Java e Spring Boot, focado em arquitetura escalável.</p>
-                </div>
-            </section>
-
-            <section id="skills">
-                <h2 class="section-title">02. SKILLS</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <h3 class="hover-trigger">Backend</h3>
-                        <p>Java, Spring Boot, PostgreSQL.</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3 class="hover-trigger">Frontend</h3>
-                        <p>React, Next.js, CSS Animations.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contato">
-                <h2 class="section-title">03. CONTATO</h2>
-                <div class="contact-links">
-                    <a href="#" class="hover-trigger">EMAIL</a>
-                    <a href="#" class="hover-trigger">LINKEDIN</a>
+                    <p>Especialista em Java e Spring Boot.</p>
                 </div>
             </section>
 
@@ -190,39 +114,33 @@
         lupaContent.innerHTML = contentOriginal.innerHTML;
 
         document.addEventListener('mousemove', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
-            const scrollY = window.scrollY;
-
             lupaWrapper.style.opacity = '1';
-            lupaWrapper.style.left = `${x}px`;
-            lupaWrapper.style.top = `${y}px`;
+            lupaWrapper.style.left = e.clientX + 'px';
+            lupaWrapper.style.top = e.clientY + 'px';
 
-            const zoom = 1.2; // Zoom sutil para efecto lupa cristalina
-            const currentRadius = lupaWrapper.offsetWidth / 2; 
-
-            const moveX = -(x * zoom) + currentRadius;
-            const moveY = -((y + scrollY) * zoom) + currentRadius;
+            const zoom = 1.05; // Zoom muy ligero para que se note la lupa
+            const currentRadius = lupaWrapper.offsetWidth / 2;
+            const moveX = -(e.clientX * zoom) + currentRadius;
+            const moveY = -((e.clientY + window.scrollY) * zoom) + currentRadius;
 
             lupaContent.style.transform = `translate(${moveX}px, ${moveY}px) scale(${zoom})`;
         });
 
-        const hoverItems = document.querySelectorAll('.hover-trigger');
-        hoverItems.forEach(item => {
-            item.addEventListener('mouseenter', () => lupaWrapper.classList.add('active'));
-            item.addEventListener('mouseleave', () => lupaWrapper.classList.remove('active'));
+        const triggers = document.querySelectorAll('.hover-trigger');
+        triggers.forEach(el => {
+            el.addEventListener('mouseenter', () => lupaWrapper.classList.add('active'));
+            el.addEventListener('mouseleave', () => lupaWrapper.classList.remove('active'));
         });
 
-        // Partículas en blanco para el nuevo tema
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 80 },
                 "color": { "value": "#ffffff" },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.2 },
-                "size": { "value": 1, "random": true },
+                "size": { "value": 1 },
                 "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 0.8 }
+                "move": { "enable": true, "speed": 1 }
             }
         });
     </script>
