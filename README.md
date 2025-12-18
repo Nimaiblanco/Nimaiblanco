@@ -1,6 +1,6 @@
 <div align="center">
 
-# Blanco Nimai 👋
+# Blanco Nimai
 ### FULL STACK DEVELOPER
 
 <br>
