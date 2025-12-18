@@ -55,7 +55,7 @@ section { padding: 100px 10%; min-height: 80vh; display: flex; flex-direction: c
 /* EMAIL ACHICADO */
 .contact-links a { 
     font-size: clamp(2rem, 5vw, 3.5rem); /* Achicado */
-    color: #fff; text-decoration: none; font-weight: 900; pointer-events: auto;
+    color: #fff; text-decoration: none; font-weight: 400; pointer-events: auto;
 }
 
 #particles-js { position: fixed; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
