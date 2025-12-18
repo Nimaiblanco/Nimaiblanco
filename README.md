@@ -4,15 +4,17 @@
 
 <img src="https://capsule-render.vercel.app/render?type=terminal&color=000000&height=150&section=header&text=FULL%20STACK%20DEVELOPER&fontSize=40&fontColor=38bdf8" width="100%" />
 
-<img src="https://raw.githubusercontent.com/Nimaiblanco/Nimaiblanco/main/assets/unnamed%20(4).jpg" width="100%" style="border-radius: 10px;" />
+<br>
+
+<img src="https://raw.githubusercontent.com/Nimaiblanco/Nimaiblanco/main/assets/banner.jpg" width="100%" style="border-radius: 10px; border: 2px solid #38bdf8;" />
 
 ---
 
-## 💻 Portfólio Interativo
-<p>Clique no card abaixo para abrir meu currículo digital em tela cheia</p>
+## 🌐 Portfólio Interativo
+<p>Clique no card abaixo para acessar a experiência completa com partículas e cursor neón</p>
 
 <a href="https://nimaiblanco.github.io/Nimaiblanco/">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Nimaiblanco&repo=Nimaiblanco&theme=tokyonight&show_owner=true" width="450px" />
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Nimaiblanco&repo=Nimaiblanco&theme=tokyonight&show_owner=false" width="100%" />
 </a>
 
 <br>
