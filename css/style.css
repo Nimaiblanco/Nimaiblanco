@@ -1,11 +1,11 @@
-/* NAVBAR - MÁXIMA PRIORIDAD */
+/* NAVBAR: MÁXIMA PRIORIDAD PARA CLICS */
 .navbar { 
     position: fixed; 
     top: 40px; 
     right: 50px; 
     display: flex; 
     gap: 25px; 
-    z-index: 9999999 !important; /* Por encima de todo */
+    z-index: 999999 !important; /* Asegura estar sobre el cursor */
 }
 
 .navbar a { 
@@ -15,21 +15,39 @@
     letter-spacing: 2px; 
     font-weight: 900; 
     opacity: 0.6;
-    pointer-events: auto !important; /* Obliga a recibir clics */
+    pointer-events: auto !important; /* Habilita clics manualmente */
     transition: 0.3s;
-    position: relative;
 }
-
 .navbar a:hover { opacity: 1; color: var(--accent); }
 
-/* CURSOR - DEBE SER INVISIBLE PARA LOS CLICS */
+/* CURSOR: TAMAÑO GRANDE Y SIN BLOQUEO */
 #cursor {
     position: fixed;
-    pointer-events: none !important; /* El clic lo atraviesa */
-    z-index: 100000; 
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none !important; /* LOS CLICS ATRAVIESAN EL CURSOR */
+    z-index: 100000;
     transform: translate(-50%, -50%);
     overflow: hidden; 
     background: var(--bg);
-    border: 1px solid var(--accent);
-    border-radius: 50%;
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                height 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
+
+#cursor.active {
+    width: 250px; /* Tamaño grande pedido */
+    height: 250px;
+    border: 1px solid rgba(56, 189, 248, 0.8);
+}
+
+#cursor-zoom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+#cursor.active #cursor-zoom { display: block; }
