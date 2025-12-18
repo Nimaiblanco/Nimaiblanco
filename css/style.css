@@ -1,26 +1,27 @@
-/* ESTRUTURA DAS SEÇÕES */
+/* ESTRUTURA DAS SEÇÕES - CORRIGIDO */
 section { 
-    padding: 100px 10%; /* Espaço interno equilibrado */
-    min-height: 100vh;  /* Cada seção ocupa a tela inteira */
+    padding: 100px 10%;
+    min-height: 100vh;
     display: flex; 
     flex-direction: column; 
-    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center;
     position: relative;
     z-index: 5;
+    width: 100%; /* Garante que ocupe a largura total */
 }
 
 /* AJUSTE DO SCROLL E COMPORTAMENTO DO MENU */
 html { 
     scroll-behavior: smooth; 
-    scroll-padding-top: 120px; /* Evita que o título da seção fique "colado" no topo ao clicar no menu */
+    scroll-padding-top: 120px; 
 }
 
 /* TÍTULOS DAS SEÇÕES */
 .section-title {
     color: var(--accent);
-    font-size: 0.75rem; /* Um pouco menor para parecer mais elegante/minimalista */
+    font-size: 0.75rem; 
     letter-spacing: 6px;
-    margin-bottom: 60px; /* Mais espaço abaixo do título */
+    margin-bottom: 60px; 
     text-transform: uppercase;
     font-weight: 900;
     opacity: 0.9;
@@ -28,18 +29,31 @@ html {
 
 /* ESTILO DOS ITENS DENTRO DAS SEÇÕES */
 .skill-item {
-    margin-bottom: 50px; /* Espaço entre os blocos de texto */
-    max-width: 700px;    /* Evita que o texto estique demais em telas grandes */
+    margin-bottom: 60px; /* Aumentei um pouco para dar mais ar */
+    max-width: 800px;
 }
 
 .skill-item h3 {
-    font-size: 2rem;
+    font-size: 2.5rem; /* Ajustado para melhor impacto visual */
     margin-bottom: 15px;
     font-weight: 900;
+    color: #ffffff; /* Garante que o título seja branco */
+    text-transform: uppercase;
 }
 
 .skill-item p {
-    font-size: 1rem;
-    line-height: 1.6;
-    opacity: 0.6; /* Texto de descrição mais suave para dar contraste com o título */
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ffffff;
+    opacity: 0.6; /* Efeito minimalista de cinza claro */
+}
+
+/* Responsividade Básica para Celular */
+@media (max-width: 768px) {
+    .skill-item h3 {
+        font-size: 1.8rem;
+    }
+    section {
+        padding: 80px 5%;
+    }
 }
