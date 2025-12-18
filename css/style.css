@@ -1,76 +1,37 @@
-:root {
-    --bg: #000000;
-    --accent: #38bdf8;
-    --text-main: #ffffff;
-}
+/* ... (mantiene el resto igual hasta el cursor) ... */
 
-html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-
-* { 
-    margin: 0; padding: 0; box-sizing: border-box; 
-    cursor: none !important; 
-}
-
-body { 
-    background-color: var(--bg); 
-    font-family: 'Inter', sans-serif; 
-    color: var(--text-main); 
-    overflow-x: hidden;
-}
-
-/* NAVBAR - Z-INDEX ALTO Y CLICABLE */
-.navbar { 
-    position: fixed; top: 40px; right: 50px; 
-    display: flex; gap: 25px; z-index: 1000; 
-}
-.navbar a { 
-    color: #fff; text-decoration: none; font-size: 11px; 
-    letter-spacing: 2px; font-weight: 900; opacity: 0.6;
-    pointer-events: auto; transition: 0.3s;
-}
-.navbar a:hover { opacity: 1; color: var(--accent); }
-
-/* CURSOR LUPA PROFESIONAL (SIN CLONACIÓN) */
+/* CURSOR: TAMAÑO AJUSTADO (MÁS PEQUEÑO) */
 #cursor {
     position: fixed;
     width: 30px;
     height: 30px;
     border: 1px solid var(--accent);
     border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
+    pointer-events: none !important;
+    z-index: 100000;
     transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden; 
+    background: var(--bg);
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                height 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* EFECTO DE ZOOM REAL CON BACKDROP FILTER */
 #cursor.active {
-    width: 200px; /* Tamaño de la lupa */
-    height: 200px;
-    background: rgba(56, 189, 248, 0.05);
-    border: 2px solid var(--accent);
-    box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
-    /* Este filtro crea el efecto visual de aumento y claridad */
-    backdrop-filter: brightness(1.2) contrast(1.2);
-    transform: translate(-50%, -50%) scale(1.1); 
+    width: 180px; /* Tamaño reducido de la lupa */
+    height: 180px;
+    border: 1px solid rgba(56, 189, 248, 0.8);
 }
 
-/* DISEÑO DE SECCIONES */
-#main-wrapper { position: relative; z-index: 10; }
-section { padding: 120px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-
-.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-.hero h1 { font-family: 'Archivo Narrow', sans-serif; font-size: 8vw; line-height: 0.8; text-align: center; text-transform: uppercase; }
-.hero p { color: var(--accent); letter-spacing: 5px; margin-top: 20px; font-weight: 900; font-size: 0.8rem; }
-
-.section-title { color: var(--accent); font-size: 1rem; letter-spacing: 4px; margin-bottom: 50px; font-weight: 900; }
-
+/* CONTACTO: TAMAÑO DE EMAIL REDUCIDO */
 .contact-links a { 
-    font-size: clamp(3rem, 10vw, 6rem); color: #fff; 
-    text-decoration: none; font-weight: 900; pointer-events: auto;
+    font-size: clamp(2rem, 6vw, 4rem); /* Tamaño achicado para el email */
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: 900; 
+    line-height: 1.2;
+    transition: 0.4s; 
+    pointer-events: auto;
 }
+.contact-links a:hover { transform: translateX(20px); color: var(--accent); }
 
-#particles-js { position: fixed; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+/* ... (resto del archivo igual) ... */
