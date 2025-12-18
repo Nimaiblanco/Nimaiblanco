@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://github.com/user-attachments/assets/5e955c20-0228-4be4-9e1f-eba900dbaf8f" width="220" alt="Nimai Blanco Avatar" style="border-radius: 20px;">
 
-  # Hola, soy Nimai Pandit Blanco Perez 👋
+  # Hola, soy Nimai Blanco 👋
   ### **Full Stack Developer | Java Specialist | Frontend Explorer**
 
   ---
