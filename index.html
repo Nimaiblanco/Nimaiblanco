@@ -30,7 +30,7 @@
             width: 100%;
         }
 
-        /* 2. FONDO DE PARTÍCULAS */
+        /* 2. FONDO DE MOLÉCULAS AZULES */
         #particles-js {
             position: fixed;
             top: 0;
@@ -41,7 +41,7 @@
             background-color: #000;
         }
 
-        /* 3. WRAPPER PRINCIPAL */
+        /* 3. WRAPPER PRINCIPAL (Transparente para ver la red) */
         #main-wrapper {
             position: relative;
             z-index: 10;
@@ -108,9 +108,8 @@
         }
 
         section {
-            padding: 150px 15%; /* Más espacio para poder scrollear */
+            padding: 150px 15%;
             min-height: 60vh;
-            display: block; /* Asegura que se vean */
         }
 
         .section-title {
@@ -120,7 +119,6 @@
             font-size: 1rem;
         }
 
-        /* Estilos específicos para Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -130,7 +128,6 @@
         .skill-item h3 { font-size: 2.5rem; margin-bottom: 15px; }
         .skill-item p { opacity: 0.7; font-size: 1.2rem; line-height: 1.6; }
 
-        /* Estilos para Contacto */
         .contact-links {
             display: flex;
             gap: 30px;
@@ -142,7 +139,6 @@
             font-size: 3rem;
             text-decoration: none;
             font-weight: 900;
-            transition: color 0.3s;
         }
 
         .contact-links a:hover { color: var(--accent); }
@@ -166,7 +162,7 @@
 
             <div class="hero">
                 <h1>BLANCO<br>NIMAI</h1>
-                <p style="color:var(--accent); letter-spacing: 5px; margin-top: 20px;">SOFTWARE DEVELOPER</p>
+                <p style="color:var(--accent); letter-spacing: 5px; margin-top: 20px; font-weight: 900;">SOFTWARE DEVELOPER</p>
             </div>
 
             <section id="experiencia">
@@ -211,7 +207,6 @@
         const lupaContent = document.getElementById('lupa-content');
         const lupaWrapper = document.getElementById('lupa-wrapper');
 
-        // Clonamos el contenido
         lupaContent.innerHTML = contentToCopy.innerHTML;
 
         document.addEventListener('mousemove', (e) => {
@@ -230,13 +225,51 @@
             lupaContent.style.transform = `translate(${moveX}px, ${moveY}px) scale(${zoom})`;
         });
 
+        /* CONFIGURACIÓN DE FORMACIÓN MOLECULAR */
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 80 },
+                "number": { 
+                    "value": 100, 
+                    "density": { "enable": true, "value_area": 800 } 
+                },
                 "color": { "value": "#38bdf8" },
-                "line_linked": { "enable": true, "opacity": 0.2 },
-                "move": { "enable": true, "speed": 1.5 }
-            }
+                "shape": { "type": "circle" },
+                "opacity": { 
+                    "value": 0.5, 
+                    "random": false 
+                },
+                "size": { 
+                    "value": 3, 
+                    "random": true 
+                },
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 150, 
+                    "color": "#38bdf8", 
+                    "opacity": 0.4, 
+                    "width": 1 
+                },
+                "move": { 
+                    "enable": true, 
+                    "speed": 2, 
+                    "direction": "none", 
+                    "random": false, 
+                    "straight": false, 
+                    "out_mode": "out", 
+                    "bounce": false 
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" }
+                },
+                "modes": {
+                    "grab": { "distance": 200, "line_linked": { "opacity": 0.8 } }
+                }
+            },
+            "retina_detect": true
         });
     </script>
 </body>
