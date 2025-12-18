@@ -5,33 +5,32 @@ const mainWrapper = document.getElementById('main-wrapper');
 let mouseX = 0;
 let mouseY = 0;
 
-// 1. Clonar contenido para la lupa
+// 1. Sincronizar contenido para la lupa
 window.onload = () => {
     if (mainWrapper && cursorZoom) {
         cursorZoom.innerHTML = mainWrapper.innerHTML;
     }
-    initMenuScroll(); // Inicializa el fijador de enlaces
+    fixMenuLinks(); // Forzar funcionamiento del menú
 };
 
-// 2. FORZAR REDIRECCIÓN DEL MENÚ
-const initMenuScroll = () => {
-    document.querySelectorAll('.navbar a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault(); // Evita el fallo del enlace nativo
-            const targetId = this.getAttribute('href');
+// 2. FUNCIÓN PARA QUE EL MENÚ FUNCIONE SÍ O SÍ
+function fixMenuLinks() {
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
             if (targetSection) {
                 window.scrollTo({
-                    top: targetSection.offsetTop - 80, // Ajuste para que no tape el título
+                    top: targetSection.offsetTop - 80,
                     behavior: 'smooth'
                 });
             }
         });
     });
-};
+}
 
-// 3. MOVIMIENTO DE LUPA (Sin desfase)
+// 3. Movimiento de Lupa (1.4x de aumento)
 const updateLupa = () => {
     const scrollY = window.scrollY;
     const zoom = 1.4;
@@ -53,10 +52,21 @@ document.addEventListener('mousemove', (e) => {
     mouseY = e.clientY;
 });
 
-// 4. INTERACTIVIDAD
+// 4. Efectos de Hover
 document.querySelectorAll('.hover-trigger').forEach(item => {
     item.addEventListener('mouseenter', () => cursor.classList.add('active'));
     item.addEventListener('mouseleave', () => cursor.classList.remove('active'));
 });
 
 updateLupa();
+
+// Partículas
+particlesJS('particles-js', {
+    "particles": {
+        "number": { "value": 70 },
+        "color": { "value": "#38bdf8" },
+        "size": { "value": 4 },
+        "line_linked": { "enable": true, "opacity": 0.2 },
+        "move": { "enable": true, "speed": 1 }
+    }
+});
