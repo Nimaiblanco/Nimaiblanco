@@ -21,7 +21,7 @@ body {
     overflow-x: hidden;
 }
 
-/* NAVBAR */
+/* NAVBAR - Asegurando clics */
 .navbar { 
     position: fixed; 
     top: 40px; 
@@ -44,7 +44,7 @@ body {
 
 .navbar a:hover { opacity: 1; color: var(--accent); }
 
-/* CURSOR LUPA - CORREGIDO PARA ZOOM REAL */
+/* CURSOR LENTE DE AUMENTO */
 #cursor {
     position: fixed;
     width: 30px;
@@ -54,19 +54,20 @@ body {
     pointer-events: none;
     z-index: 100000;
     transform: translate(-50%, -50%);
-    overflow: hidden; /* Necesario para el efecto lente */
-    background: var(--bg); /* Evita que se vea el fondo duplicado */
+    overflow: hidden; 
+    background: var(--bg); /* Fondo sólido para ocultar el original */
     transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
                 height 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 #cursor.active {
-    width: 160px; 
-    height: 160px;
+    width: 180px; 
+    height: 180px;
     border: 1px solid rgba(56, 189, 248, 0.8);
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
 }
 
-/* Contenedor interno del Zoom */
+/* CONTENEDOR INTERNO DEL ZOOM */
 #cursor-zoom {
     position: absolute;
     top: 0;
@@ -83,7 +84,7 @@ body {
 
 /* SECCIONES */
 #main-wrapper { position: relative; z-index: 10; }
-section { padding: 100px 10%; min-height: 80vh; }
+section { padding: 100px 10%; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
 
 .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
 .hero h1 { font-family: 'Archivo Narrow', sans-serif; font-size: 8vw; line-height: 0.8; text-align: center; text-transform: uppercase; }
@@ -97,13 +98,14 @@ section { padding: 100px 10%; min-height: 80vh; }
     font-weight: 900;
 }
 
-/* CONTACTO */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+.skill-item h3 { font-size: 2.2rem; color: var(--accent); font-family: 'Archivo Narrow', sans-serif; }
+
 .contact-links { display: flex; flex-direction: column; }
 .contact-links a { 
     font-size: clamp(3rem, 10vw, 6rem); 
     color: #fff; text-decoration: none; font-weight: 900; 
     line-height: 1; transition: 0.4s; pointer-events: auto;
-    width: fit-content;
 }
 .contact-links a:hover { transform: translateX(30px); color: var(--accent); }
 
