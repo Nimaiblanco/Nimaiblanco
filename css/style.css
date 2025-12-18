@@ -1,134 +1,33 @@
-:root {
-    --bg: #000000;
-    --text: #ffffff;
-    --accent: #38bdf8;
-    --border: #1a1a1a;
-}
+/* ... (Manten tus variables :root igual) */
 
-/* 1. Reset y eliminación total del cursor del sistema */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    cursor: none !important; 
-}
-
-html, body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    /* Quitamos el overflow: hidden para permitir el scroll normal */
-    overflow-x: hidden; 
+#particles-js {
+    position: fixed;
     width: 100%;
+    height: 100%;
+    background-color: #000000; /* El fondo negro ahora vive aquí */
+    z-index: 0; /* Al fondo de todo */
+    top: 0;
+    left: 0;
 }
 
-/* 2. EL CONTENEDOR CIRCULAR (LUPA) */
+#main-wrapper {
+    position: relative;
+    z-index: 1; /* El texto por encima de las partículas */
+    background: transparent; /* IMPORTANTE: Para que se vea el fondo */
+}
+
 .cursor-lupa {
     position: fixed;
-    width: 120px; /* Tamaño un poco más grande para mejor visibilidad */
+    width: 120px;
     height: 120px;
     border: 2px solid var(--accent);
     border-radius: 50%;
-    overflow: hidden; /* Recorta el contenido espejo */
-    z-index: 9999;
-    pointer-events: none; /* Permite hacer click a través de la lupa */
-    transform: translate(-50%, -50%); /* Crucial para centrar con el JS */
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
-    background-color: var(--bg); /* Evita transparencias raras */
-}
-
-/* 3. EL CONTENIDO CLONADO DENTRO DE LA LUPA */
-.lupa-content {
-    position: absolute;
-    width: 100vw;
-    /* No le damos altura fija para que el contenido clonado fluya */
-    min-height: 100vh;
-    background: var(--bg);
-    transform-origin: 0 0;
+    overflow: hidden;
+    z-index: 10000; /* Por encima de todo */
     pointer-events: none;
-}
-
-/* 4. CONTENIDO PRINCIPAL */
-#main-content {
-    width: 100%;
-    position: relative;
-    z-index: 1;
-}
-
-/* 5. ESTILOS VISUALES (Estilo Matheus Adriel) */
-.navbar {
-    position: fixed;
-    top: 40px;
-    right: 60px;
-    display: flex;
-    gap: 35px;
-    z-index: 1000;
-}
-
-.navbar a {
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    transition: 0.3s;
-}
-
-.navbar a:hover { color: var(--text); }
-
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero h1 {
-    font-family: 'Archivo Narrow', sans-serif;
-    font-size: 10vw;
-    line-height: 0.85;
-    text-align: center;
-    letter-spacing: -3px;
-    text-transform: uppercase;
-}
-
-.hero p {
-    color: var(--accent);
-    letter-spacing: 10px;
-    margin-top: 20px;
-    font-size: 0.9rem;
-}
-
-/* SECCIONES PARA PROBAR EL SCROLL */
-section {
-    padding: 120px 15%;
-    border-top: 1px solid var(--border);
-}
-
-.section-title { 
-    color: var(--accent); 
-    letter-spacing: 4px; 
-    margin-bottom: 50px; 
-    font-size: 0.8rem; 
-}
-
-.skill-tag {
-    display: inline-block;
-    border: 1px solid var(--border);
-    padding: 12px 30px;
-    margin: 5px;
-    font-weight: 900;
-    font-size: 0.8rem;
-}
-
-/* Animaciones de revelado */
-.reveal {
+    transform: translate(-50%, -50%);
     opacity: 0;
-    transform: translateY(30px);
-    transition: 1s ease-out;
+    background: #000; /* La lupa tiene su propio fondo negro para que el zoom sea legible */
 }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* El resto de tus estilos (.hero, .navbar, etc.) se mantienen igual */
