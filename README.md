@@ -1,7 +1,6 @@
 <p align="center">
-  <img src="[https://github.com/user-attachments/assets/5f81058f-587d-4bd4-b345-a480839e5679](https://github.com/user-attachments/assets/affd809a-34cb-42de-888c-2d96aebb6c3c)" width="300" alt="Avatar Nimai">
+  <img src="https://github.com/user-attachments/assets/5e955c20-0228-4be4-9e1f-eba900dbaf8f" width="300" alt="Avatar Nimai">
 </p>
-
 
 
 <!--
