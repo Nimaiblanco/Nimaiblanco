@@ -3,51 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blanco Nimai | Full Stack Developer</title>
+    <title>Blanco Nimai | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="particles-js"></div>
 
-    <nav class="navbar">
+    <nav class="navbar reveal">
         <a href="#experiencia">EXPERIÊNCIA</a>
-        <a href="#formacao">FORMAÇÃO</a>
+        <a href="#skills">SKILLS</a>
         <a href="#contato">CONTATO</a>
     </nav>
 
     <div class="hero">
-        <h1>BLANCO<br>NIMAI</h1>
-        <p>FULL STACK DEVELOPER</p>
+        <h1 class="reveal">BLANCO<br>NIMAI</h1>
+        <p class="reveal">SOFTWARE DEVELOPER</p>
     </div>
 
-    <section id="experiencia">
+    <section id="experiencia" class="reveal">
         <h2 class="section-title">EXPERIÊNCIA TÉCNICA</h2>
         <div class="cv-item">
             <h3>Desenvolvedor Full Stack</h3>
             <span class="date">Atualmente</span>
-            <p>Desenvolvimento de sistemas robustos utilizando Java e Spring Boot no backend, com integrações de bancos de dados MySQL e interfaces modernas em JavaScript/CSS3.</p>
+            <p>Desenvolvimento de sistemas robustos utilizando Java e Spring Boot no backend.</p>
         </div>
     </section>
 
-    <section id="skills">
-        <h2 class="section-title">STACK TECNOLÓGICA</h2>
-        <div class="skills-grid">
-            <span>JAVA</span>
-            <span>SPRING BOOT</span>
-            <span>MYSQL</span>
-            <span>JAVASCRIPT</span>
-            <span>GIT & GITHUB</span>
-            <span>HTML5/CSS3</span>
-        </div>
-    </section>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        /* Configuración de partículas fluidas */
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80 },
+                "color": { "value": "#38bdf8" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2 }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
 
-    <section id="contato">
-        <h2 class="section-title">VAMOS CONVERSAR?</h2>
-        <div class="contact-links">
-            <a href="https://www.linkedin.com/in/nimaiblanco108/" target="_blank">LINKEDIN</a>
-            <a href="mailto:tu-email@ejemplo.com">EMAIL</a>
-        </div>
-    </section>
-
+        /* Script para el efecto Reveal (aparecer al hacer scroll) */
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        // Ejecutar una vez al cargar
+        reveal();
+    </script>
 </body>
 </html>
