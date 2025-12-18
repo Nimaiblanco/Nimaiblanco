@@ -1,4 +1,4 @@
-<img width="992" height="1056" alt="Gemini_Generated_Image_3ks8jl3ks8jl3ks8" src="[https://github.com/user-attachments/assets/5f81058f-587d-4bd4-b345-a480839e5679](https://lh3.googleusercontent.com/gg-dl/ABS2GSmKZSPgGZ2Vf1vE3mvcH8Zegw9GGRkKfQlq4s5PCsHxBKYikLbRWl1AigzqsgtrgWvIuii_RyeVyY--O8N_iSGoD5isO4L_8myqu12KoNTPr5wyrVO1LdHg1GZc9XP_zVjkU5B2hFQGMnQgjGP9TU42QoZNqRU87ZPmQljDN7Bj9J5JaQ=s1024-rj)" />
+![Mi Avatar](https://github.com/user-attachments/assets/5f81058f-587d-4bd4-b345-a480839e5679)
 
 
 <!--
