@@ -11,8 +11,6 @@
 ---
 
 ## 🌐 Portfólio Interativo
-<p>Clique no card abaixo para acessar a experiência completa</p>
-
 <a href="https://nimaiblanco.github.io/Nimaiblanco/">
   <img src="https://github-readme-stats.vercel.app/api/pin/?username=Nimaiblanco&repo=Nimaiblanco&theme=tokyonight" width="400px" />
 </a>
@@ -21,8 +19,6 @@
 
 [![LinkedIn](https://img.shields.io/badge/LINKEDIN-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nimaiblanco108/)
 [![GitHub](https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Nimaiblanco/)
-
----
 
 </div>
 
