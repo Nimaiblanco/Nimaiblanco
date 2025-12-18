@@ -4,7 +4,10 @@
     --text-main: #ffffff;
 }
 
-html { scroll-behavior: smooth; }
+html { 
+    scroll-behavior: smooth; 
+    scroll-padding-top: 100px; /* Evita que el menú tape el título al scrollear */
+}
 
 * { 
     margin: 0; padding: 0; box-sizing: border-box; 
@@ -18,50 +21,59 @@ body {
     overflow-x: hidden;
 }
 
-/* CURSOR LUPA LIMPIO */
+/* NAVBAR CORREGIDA */
+.navbar { 
+    position: fixed; 
+    top: 40px; 
+    right: 50px; 
+    display: flex; 
+    gap: 25px; 
+    z-index: 999999; /* Valor máximo para asegurar clics */
+}
+
+.navbar a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 11px; 
+    letter-spacing: 2px; 
+    font-weight: 900; 
+    opacity: 0.6;
+    pointer-events: auto; /* Habilita interacción */
+    transition: 0.3s;
+}
+
+.navbar a:hover { opacity: 1; color: var(--accent); }
+
+/* CURSOR */
 #cursor {
     position: fixed;
-    width: 40px;
-    height: 40px;
+    width: 30px; height: 30px;
     border: 1px solid var(--accent);
     border-radius: 50%;
     pointer-events: none;
-    z-index: 99999;
-    transition: width 0.3s, height 0.3s, background 0.3s;
+    z-index: 100000; /* Debajo del navbar para no bloquear clics */
     transform: translate(-50%, -50%);
-    mix-blend-mode: difference; /* Efecto visual sin capas extra */
+    mix-blend-mode: difference;
+    transition: width 0.3s, height 0.3s;
 }
 
-#cursor.active {
-    width: 150px;
-    height: 150px;
-    background: rgba(56, 189, 248, 0.1);
-    border: 1px solid var(--accent);
-}
+#cursor.active { width: 120px; height: 120px; background: rgba(56, 189, 248, 0.1); }
 
-/* NAVBAR */
-.navbar { 
-    position: fixed; top: 40px; right: 50px; 
-    display: flex; gap: 20px; z-index: 1000; 
-}
-.navbar a { 
-    color: #fff; text-decoration: none; font-size: 11px; 
-    font-weight: 900; opacity: 0.6; pointer-events: auto;
-}
-.navbar a:hover { opacity: 1; color: var(--accent); }
-
-/* LAYOUT LIGERO */
+/* SECCIONES Y TEXTOS */
 #main-wrapper { position: relative; z-index: 10; }
-section { padding: 120px 10%; min-height: 100vh; }
+section { padding: 100px 10%; min-height: 80vh; }
 
 .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-.hero h1 { 
-    font-family: 'Archivo Narrow', sans-serif; 
-    font-size: 8vw; line-height: 0.8; 
-    text-align: center; text-transform: uppercase;
-}
+.hero h1 { font-family: 'Archivo Narrow', sans-serif; font-size: 8vw; line-height: 0.8; text-align: center; text-transform: uppercase; }
+.hero p { color: var(--accent); letter-spacing: 5px; margin-top: 20px; font-weight: 900; font-size: 0.7rem; }
 
-.section-title { color: var(--accent); font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 40px; }
+.section-title { 
+    color: var(--accent); 
+    font-size: 0.9rem; 
+    letter-spacing: 4px; 
+    margin-bottom: 50px; 
+    font-weight: 900;
+}
 
 /* CONTACTO */
 .contact-links { display: flex; flex-direction: column; }
