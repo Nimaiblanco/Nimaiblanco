@@ -1,6 +1,6 @@
 :root {
     --bg: #000000;
-    --accent: #38bdf8;
+    --accent: #38bdf8; /* Color de las partículas */
     --text-main: #ffffff;
 }
 
@@ -15,46 +15,60 @@ body {
 }
 
 /* NAVBAR */
-.navbar { position: fixed; top: 40px; right: 50px; display: flex; gap: 25px; z-index: 200000; }
-.navbar a { color: #fff; text-decoration: none; font-size: 11px; letter-spacing: 2px; font-weight: 900; opacity: 0.6; pointer-events: auto; }
+.navbar { position: fixed; top: 40px; right: 50px; display: flex; gap: 25px; z-index: 2000; }
+.navbar a { 
+    color: #fff; text-decoration: none; font-size: 11px; 
+    letter-spacing: 2px; font-weight: 900; opacity: 0.6; 
+    pointer-events: auto; transition: 0.3s;
+}
+.navbar a:hover { opacity: 1; color: var(--accent); }
 
-/* CURSOR LUPA (ACHICADO) */
+/* CURSOR CIRCULAR SIMPLE */
 #cursor {
     position: fixed;
-    width: 30px; height: 30px;
-    border: 1px solid var(--accent);
+    width: 25px;
+    height: 25px;
+    border: 1.5px solid var(--accent);
     border-radius: 50%;
-    pointer-events: none !important;
-    z-index: 150000;
+    pointer-events: none;
+    z-index: 10000;
     transform: translate(-50%, -50%);
-    overflow: hidden;
-    background: var(--bg);
-    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), height 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.1s ease-out, background 0.3s ease;
 }
 
+/* Efecto opcional al pasar sobre texto */
 #cursor.active {
-    width: 180px; /* Tamaño achicado */
-    height: 180px;
+    background: rgba(56, 189, 248, 0.2);
+    transform: translate(-50%, -50%) scale(1.5);
 }
 
-#cursor-zoom {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    display: none;
+/* HERO SECTION */
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; }
+.hero-content { text-align: center; }
+.hero h1 { 
+    font-family: 'Archivo Narrow', sans-serif; 
+    font-size: 9vw; 
+    line-height: 0.85; 
+    text-transform: uppercase; 
 }
 
-#cursor.active #cursor-zoom { display: block; }
+/* Software Developer abajo y con color */
+.software-dev { 
+    color: var(--accent); 
+    letter-spacing: 6px; 
+    margin-top: 15px; 
+    font-weight: 900; 
+    font-size: 0.8rem; 
+    text-transform: uppercase;
+}
 
 /* SECCIONES */
 #main-wrapper { position: relative; z-index: 10; }
 section { padding: 100px 10%; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
-.hero h1 { font-family: 'Archivo Narrow', sans-serif; font-size: 8vw; line-height: 0.8; text-transform: uppercase; text-align: center; }
 .section-title { color: var(--accent); font-size: 0.9rem; letter-spacing: 4px; margin-bottom: 50px; font-weight: 900; }
 
-/* EMAIL ACHICADO */
 .contact-links a { 
-    font-size: clamp(2rem, 5vw, 3.5rem); /* Achicado */
+    font-size: clamp(2rem, 5vw, 3rem); 
     color: #fff; text-decoration: none; font-weight: 900; pointer-events: auto;
 }
 
