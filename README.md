@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/0b613142-a94b-41bd-8d09-f0643a630dfe" width="100%" alt="Nimai Blanco Horizon" style="border-radius: 10px;">
+  <img src="https://github.com/user-attachments/assets/be839c96-683c-408c-9656-509d5e6b15d0" width="100%" alt="Nimai Blanco Horizon" style="border-radius: 10px;">
+
 
   # Nimai Pandit Blanco Perez 👋
   ### **Full Stack Developer | Java Specialist | Software Architecture**
