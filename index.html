@@ -6,21 +6,6 @@
     <title>Blanco Nimai | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&display=swap" rel="stylesheet">
-    <style>
-        /* Cursor personalizado */
-        .cursor-follower {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: rgba(56, 189, 248, 0.3);
-            border: 1px solid #38bdf8;
-            border-radius: 50%;
-            pointer-events: none;
-            transition: transform 0.1s ease;
-            z-index: 9999;
-            mix-blend-mode: difference;
-        }
-    </style>
 </head>
 <body>
     <div class="cursor-follower"></div>
@@ -34,7 +19,7 @@
     </nav>
 
     <div class="hero">
-        <h1 class="reveal" style="font-family: 'Archivo Black', sans-serif;">BLANCO<br>NIMAI</h1>
+        <h1 class="reveal">BLANCO<br>NIMAI</h1>
         <p class="reveal">SOFTWARE DEVELOPER</p>
     </div>
 
@@ -54,11 +39,12 @@
             <div class="skill-tag">SPRING BOOT</div>
             <div class="skill-tag">MYSQL</div>
             <div class="skill-tag">JAVASCRIPT</div>
+            <div class="skill-tag">GIT & GITHUB</div>
         </div>
     </section>
 
     <section id="contato" class="reveal">
-        <h2 class="section-title">CONTATO</h2>
+        <h2 class="section-title">VAMOS CONVERSAR?</h2>
         <div class="contact-links">
             <a href="https://www.linkedin.com/in/nimaiblanco108/" target="_blank">LINKEDIN</a>
             <a href="mailto:tuemail@dominio.com">EMAIL</a>
@@ -67,13 +53,14 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        /* Cursor logic */
+        /* Lógica del Cursor */
         const cursor = document.querySelector('.cursor-follower');
         document.addEventListener('mousemove', (e) => {
-            cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
         });
 
-        /* Configuración de partículas */
+        /* Configuración de Partículas (Estilo Red Neuronal) */
         particlesJS('particles-js', {
             "particles": {
                 "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
@@ -89,19 +76,15 @@
             }
         });
 
-        /* Reveal on scroll */
-        window.addEventListener('scroll', reveal);
-        function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var revealTop = reveals[i].getBoundingClientRect().top;
-                if (revealTop < windowHeight - 100) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
-        reveal();
+        /* Animación Reveal al hacer Scroll */
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                let windowHeight = window.innerHeight;
+                let revealTop = el.getBoundingClientRect().top;
+                if (revealTop < windowHeight - 100) el.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
