@@ -8,10 +8,11 @@
     <style>
         :root {
             --bg: #000000;
-            --accent: #38bdf8; /* O azul original de volta */
-            --text-main: #ffffff; /* Texto agora é branco e visível por padrão */
+            --accent: #38bdf8; 
+            --text-main: #ffffff; 
         }
 
+        /* 1. RESET Y CURSOR PERSONALIZADO */
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
         
         body { 
@@ -22,9 +23,19 @@
             color: var(--text-main); 
         }
 
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        /* 2. FONDO DE PARTÍCULAS AGRANDADO */
+        #particles-js { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: 1; 
+            /* Pequeño aumento de escala para profundidad */
+            transform: scale(1.05); 
+        }
 
-        /* LUPA - Agora brilha em azul e revela o conteúdo com nitidez */
+        /* 3. LUPA DE REVELACIÓN (Sutil aumento) */
         #lupa-wrapper {
             position: fixed;
             width: 35px;
@@ -44,10 +55,10 @@
         }
 
         #lupa-wrapper.active {
-            width: 140px;
-            height: 140px;
+            width: 160px; /* Un poco más grande para mejor impacto */
+            height: 160px;
             box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
-            backdrop-filter: brightness(1.2); /* Deixa o que está dentro da lupa mais "aceso" */
+            backdrop-filter: brightness(1.15); 
         }
 
         #lupa-content {
@@ -58,7 +69,7 @@
             background: var(--bg);
         }
 
-        /* CONTENIDO BASE - VISÍVEL E COLORIDO */
+        /* 4. CONTENIDO PRINCIPAL - SIEMPRE VISIBLE */
         #main-wrapper { position: relative; z-index: 10; user-select: none; }
 
         .navbar { position: fixed; top: 40px; right: 60px; display: flex; gap: 30px; z-index: 1000; }
@@ -75,14 +86,14 @@
 
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         
-        /* Seu nome agora brilha em azul novamente */
+        /* NOMBRE EN AZUL CON BRILLO */
         .hero h1 { 
             font-family: 'Archivo Narrow', sans-serif; 
             font-size: 11vw; 
             line-height: 0.85; 
             text-transform: uppercase; 
             color: var(--accent); 
-            text-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+            text-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
         }
         
         .hero p { 
@@ -195,7 +206,7 @@
             lupaWrapper.style.left = `${x}px`;
             lupaWrapper.style.top = `${y}px`;
 
-            const zoom = 1.05; // Zoom leve para não distorcer muito
+            const zoom = 1.05; 
             const currentRadius = lupaWrapper.offsetWidth / 2; 
 
             const moveX = -(x * zoom) + currentRadius;
@@ -210,15 +221,45 @@
             item.addEventListener('mouseleave', () => lupaWrapper.classList.remove('active'));
         });
 
+        /* PARTÍCULAS MODIFICADAS: Más grandes y con más conexiones */
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "number": { 
+                    "value": 110, 
+                    "density": { "enable": true, "value_area": 800 } 
+                },
                 "color": { "value": "#38bdf8" },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.3 },
-                "size": { "value": 1.2, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 1 }
+                "opacity": { 
+                    "value": 0.4, 
+                    "random": false 
+                },
+                "size": { 
+                    "value": 4, /* Tamaño de puntos agrandado */
+                    "random": true 
+                },
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 180, /* Distancia de red agrandada */
+                    "color": "#38bdf8", 
+                    "opacity": 0.3, 
+                    "width": 1.5 /* Grosor de línea agrandado */
+                },
+                "move": { 
+                    "enable": true, 
+                    "speed": 1.2, 
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onclick": { "enable": true, "mode": "push" }
+                }
             }
         });
     </script>
