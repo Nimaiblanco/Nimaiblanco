@@ -1,75 +1,30 @@
 const cursor = document.getElementById('cursor');
-const cursorZoom = document.getElementById('cursor-zoom');
-const mainWrapper = document.getElementById('main-wrapper');
 
-let mouseX = 0;
-let mouseY = 0;
-
-const syncContent = () => {
-    if (mainWrapper && cursorZoom) {
-        cursorZoom.innerHTML = ''; 
-        const clone = mainWrapper.cloneNode(true);
-        cursorZoom.appendChild(clone);
-    }
-};
-
-window.addEventListener('load', () => {
-    syncContent();
-    fixMenuLinks();
-    updateLupa();
-});
-
-function fixMenuLinks() {
-    document.querySelectorAll('.navbar a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            const targetId = link.getAttribute('href');
-            if (targetId.startsWith('#')) {
-                e.preventDefault();
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    const offsetTop = targetSection.getBoundingClientRect().top + window.pageYOffset;
-                    window.scrollTo({
-                        top: offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-}
-
-const updateLupa = () => {
-    const scrollY = window.scrollY;
-    const zoom = 1.4;
-
-    cursor.style.left = `${mouseX}px`;
-    cursor.style.top = `${mouseY}px`;
-
-    // El cálculo usa el offsetWidth actual para que siempre esté centrado
-    const moveX = (cursor.offsetWidth / 2) - (mouseX * zoom);
-    const moveY = (cursor.offsetHeight / 2) - ((mouseY + scrollY) * zoom);
-
-    if (cursorZoom) {
-        cursorZoom.style.transform = `translate(${moveX}px, ${moveY}px) scale(${zoom})`;
-    }
-    
-    requestAnimationFrame(updateLupa);
-};
-
+// Movimiento del cursor
 document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
 });
 
-// Detectar hover de forma global
-document.addEventListener('mouseover', (e) => {
-    if (e.target.closest('.hover-trigger')) {
+// Activar lupa en elementos con clase .hover-trigger
+document.querySelectorAll('.hover-trigger').forEach(item => {
+    item.addEventListener('mouseenter', () => {
         cursor.classList.add('active');
-    }
+    });
+    item.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+    });
 });
 
-document.addEventListener('mouseout', (e) => {
-    if (e.target.closest('.hover-trigger')) {
-        cursor.classList.remove('active');
+// Partículas de fondo
+particlesJS('particles-js', {
+    "particles": {
+        "number": { "value": 60 },
+        "color": { "value": "#38bdf8" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.3 },
+        "size": { "value": 3 },
+        "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.2, "width": 1 },
+        "move": { "enable": true, "speed": 1 }
     }
 });
