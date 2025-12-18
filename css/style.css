@@ -4,7 +4,7 @@
     --text-main: #ffffff;
 }
 
-/* RESET GERAL */
+/* RESET E CURSOR */
 * { 
     margin: 0; 
     padding: 0; 
@@ -19,15 +19,16 @@ body {
     overflow-x: hidden; 
 }
 
-/* FUNDO DE PARTÍCULAS */
+/* PARTICULAS NO FUNDO */
 #particles-js {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    z-index: 1; 
+    z-index: 1;
+    background-color: #000000;
 }
 
-/* CONTAINER PRINCIPAL */
+/* CONTEÚDO NA FRENTE */
 #main-wrapper { 
     position: relative; 
     z-index: 10; 
@@ -54,79 +55,33 @@ body {
     pointer-events: auto; 
     transition: 0.3s; 
 }
-
 .navbar a:hover { opacity: 1; color: var(--accent); }
 
-/* HERO (NOME CENTRAL) */
-.hero { 
-    height: 100vh; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    text-align: center; 
-}
-
-.hero h1 { 
-    font-family: 'Archivo Narrow', sans-serif; 
-    font-size: 9vw; 
-    line-height: 0.85; 
-    text-transform: uppercase; 
-}
-
-.software-dev { 
-    color: var(--accent); 
-    letter-spacing: 6px; 
-    margin-top: 15px; 
-    font-weight: 900; 
-    font-size: 0.8rem; 
-}
+/* HERO */
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+.hero h1 { font-family: 'Archivo Narrow', sans-serif; font-size: 8vw; line-height: 0.85; text-transform: uppercase; }
+.software-dev { color: var(--accent); letter-spacing: 6px; margin-top: 15px; font-weight: 900; font-size: 0.8rem; }
 
 /* SEÇÕES GERAIS */
-section { 
-    padding: 100px 10%; 
-    min-height: 100vh; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-}
-
-.section-title { 
-    color: var(--accent); 
-    font-size: 0.8rem; 
-    letter-spacing: 5px; 
-    margin-bottom: 50px; 
-    font-weight: 900; 
-}
-
+section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+.section-title { color: var(--accent); font-size: 0.8rem; letter-spacing: 5px; margin-bottom: 50px; font-weight: 900; }
 .skill-item h3 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 900; }
 .skill-item p { opacity: 0.6; line-height: 1.6; font-size: 1.1rem; max-width: 600px; }
 
-/* --- SEÇÃO DE CONTATO (EMAIL PEQUENO) --- */
-#contato { 
-    align-items: center; 
-    text-align: center; 
-}
-
-.contact-links { 
-    margin-top: 20px; 
-}
+/* SEÇÃO DE CONTATO (EMAIL PEQUENO) */
+#contato { align-items: center; text-align: center; }
+.contact-links { margin-top: 20px; }
 
 .contact-links a { 
-    font-size: 1.2rem; /* Tamanho pequeno e limpo */
+    font-size: 1.2rem; /* Email pequeno e discreto */
     color: var(--text-main);
     text-decoration: none;
     font-weight: 700;
     letter-spacing: 1px;
-    opacity: 0.6;
     transition: 0.3s;
     pointer-events: auto;
 }
-
-.contact-links a:hover { 
-    opacity: 1; 
-    color: var(--accent); 
-    letter-spacing: 3px;
-}
+.contact-links a:hover { color: var(--accent); letter-spacing: 3px; }
 
 /* CURSOR */
 #cursor {
