@@ -4,71 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blanco Nimai | Portfolio</title>
-    <style>
-        :root {
-            --bg: #000000;
-            --text: #ffffff;
-            --accent: #38bdf8;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        /* Estilo de Texto Impactante al estilo Matheus Adriel */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 12vw;
-            line-height: 0.9;
-            margin: 0;
-            text-transform: uppercase;
-            font-weight: 900;
-        }
-
-        .hero p {
-            color: var(--accent);
-            font-size: 1.5rem;
-            letter-spacing: 5px;
-            margin-top: 20px;
-        }
-
-        /* Secciones del Portafolio */
-        section {
-            padding: 100px 10%;
-            border-top: 1px solid #1a1a1a;
-        }
-
-        .project-card {
-            background: #0a0a0a;
-            padding: 40px;
-            border-radius: 20px;
-            transition: 0.5s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            border: 1px solid var(--accent);
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav style="position: fixed; top: 30px; right: 50px; display: flex; gap: 30px; font-weight: bold; z-index: 100;">
-        <span>SOBRE</span>
-        <span>SKILLS</span>
-        <span>PROJETOS</span>
+    <nav class="navbar">
+        <a href="#sobre">SOBRE</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#projetos">PROJETOS</a>
     </nav>
 
     <div class="hero">
@@ -77,11 +21,11 @@
     </div>
 
     <section id="projetos">
-        <h2>PROJETOS</h2>
+        <h2 class="section-title">PROJETOS</h2>
         <div class="project-card">
             <h3>BioPulse Evolution</h3>
             <p>Sistema Full Stack de Inteligência em Saúde com Java & Spring Boot.</p>
-            <a href="https://github.com/Nimaiblanco/BioPulse" style="color: var(--accent);">VER REPOSITÓRIO →</a>
+            <a href="https://github.com/Nimaiblanco/BioPulse" class="project-link">VER REPOSITÓRIO →</a>
         </div>
     </section>
 
