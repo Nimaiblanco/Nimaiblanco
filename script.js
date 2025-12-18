@@ -1,12 +1,10 @@
 const cursor = document.getElementById('cursor');
 
-// Movimento do Cursor
 document.addEventListener('mousemove', (e) => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
 });
 
-// Efeito Hover
 document.addEventListener('mouseover', (e) => {
     if (e.target.classList.contains('hover-trigger') || e.target.tagName === 'A') {
         cursor.classList.add('active');
@@ -19,7 +17,6 @@ document.addEventListener('mouseout', (e) => {
     }
 });
 
-// Partículas (Configuração Estável)
 particlesJS('particles-js', {
     "particles": {
         "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
@@ -27,7 +24,7 @@ particlesJS('particles-js', {
         "shape": { "type": "circle" },
         "opacity": { "value": 0.5 },
         "size": { "value": 3 },
-        "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.2, "width": 1 },
+        "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.3, "width": 1 },
         "move": { "enable": true, "speed": 1.5 }
     },
     "interactivity": { "detect_on": "canvas", "events": { "resize": true } },
