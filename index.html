@@ -4,10 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blanco Nimai | Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --accent: #38bdf8;
+        }
+
+        /* 1. RESET Y CURSOR */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            cursor: none !important; 
+        }
+
+        body {
+            background-color: #000;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* 2. FONDO DE PARTÍCULAS (Capa 0) */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: #000;
+        }
+
+        /* 3. CONTENIDO PRINCIPAL (Capa 10 - Transparente) */
+        #main-wrapper {
+            position: relative;
+            z-index: 10;
+            background: transparent !important;
+            width: 100%;
+        }
+
+        /* 4. LA LUPA (Capa 9999) */
+        .cursor-lupa {
+            position: fixed;
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 9999;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            background: #000;
+            opacity: 0;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            transition: opacity 0.3s ease;
+        }
+
+        .lupa-content {
+            position: absolute;
+            width: 100vw;
+            height: auto;
+            background: #000;
+            transform-origin: 0 0;
+        }
+
+        /* 5. ESTILOS VISUALES */
+        .navbar {
+            position: fixed;
+            top: 40px;
+            right: 60px;
+            display: flex;
+            gap: 30px;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-family: 'Archivo Narrow', sans-serif;
+            font-size: 10vw;
+            line-height: 0.85;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            letter-spacing: 5px;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        section {
+            padding: 100px 15%;
+        }
+
+        .section-title {
+            color: var(--accent);
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .cv-item h3 { font-size: 2rem; margin-bottom: 10px; }
+        .cv-item p { opacity: 0.8; line-height: 1.6; max-width: 600px; }
+    </style>
 </head>
 <body>
+
     <div id="particles-js"></div>
 
     <div class="cursor-lupa" id="lupa-wrapper">
@@ -23,15 +143,15 @@
             </nav>
 
             <div class="hero">
-                <h1 class="reveal">BLANCO<br>NIMAI</h1>
-                <p class="reveal">SOFTWARE DEVELOPER</p>
+                <h1>BLANCO<br>NIMAI</h1>
+                <p>SOFTWARE DEVELOPER</p>
             </div>
 
-            <section id="experiencia" class="reveal active">
+            <section id="experiencia">
                 <h2 class="section-title">EXPERIÊNCIA TÉCNICA</h2>
                 <div class="cv-item">
                     <h3>Desenvolvedor Full Stack</h3>
-                    <span class="date">Atualmente</span>
+                    <span style="color: var(--accent); font-size: 0.9rem;">Atualmente</span>
                     <p>Especialista em Java e Spring Boot, focado em arquitetura escalável e interfaces de alto impacto visual.</p>
                 </div>
             </section>
@@ -44,7 +164,7 @@
         const lupaContent = document.getElementById('lupa-content');
         const lupaWrapper = document.getElementById('lupa-wrapper');
 
-        // Clonamos el contenido una sola vez al cargar
+        // Sincronización inicial del contenido clonado
         lupaContent.innerHTML = contentToCopy.innerHTML;
 
         document.addEventListener('mousemove', (e) => {
@@ -52,28 +172,29 @@
             const y = e.clientY;
             const scrollY = window.scrollY;
 
+            // Mostrar la lupa al mover el mouse
             lupaWrapper.style.opacity = '1';
             lupaWrapper.style.left = `${x}px`;
             lupaWrapper.style.top = `${y}px`;
 
             const zoom = 1.6;
-            // Cálculo para centrar el aumento exactamente en el mouse
-            const moveX = -(x * zoom) + 60; // 60 es la mitad del ancho de la lupa (120/2)
+            // Cálculo exacto: -(posicion * zoom) + mitad del ancho de lupa (60)
+            const moveX = -(x * zoom) + 60; 
             const moveY = -((y + scrollY) * zoom) + 60;
 
             lupaContent.style.transform = `translate(${moveX}px, ${moveY}px) scale(${zoom})`;
         });
 
-        /* PARTÍCULAS - Configuración foto vieja */
+        // Configuración de Partículas (Estilo original solicitado)
         particlesJS('particles-js', {
             "particles": {
                 "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#38bdf8" },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.3, "random": false },
+                "opacity": { "value": 0.3 },
                 "size": { "value": 2, "random": true },
                 "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+                "move": { "enable": true, "speed": 1.5, "direction": "none", "out_mode": "out" }
             },
             "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false } } },
             "retina_detect": true
