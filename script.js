@@ -5,31 +5,46 @@ const mainWrapper = document.getElementById('main-wrapper');
 let mouseX = 0;
 let mouseY = 0;
 
-// Sincronizar contenido
-const syncContent = () => {
+// 1. Clonar contenido para la lupa
+window.onload = () => {
     if (mainWrapper && cursorZoom) {
         cursorZoom.innerHTML = mainWrapper.innerHTML;
     }
+    initMenuScroll(); // Inicializa el fijador de enlaces
 };
 
-// Función principal de movimiento
+// 2. FORZAR REDIRECCIÓN DEL MENÚ
+const initMenuScroll = () => {
+    document.querySelectorAll('.navbar a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Evita el fallo del enlace nativo
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80, // Ajuste para que no tape el título
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+};
+
+// 3. MOVIMIENTO DE LUPA (Sin desfase)
 const updateLupa = () => {
     const scrollY = window.scrollY;
     const zoom = 1.4;
 
-    // Posición del cursor
     cursor.style.left = `${mouseX}px`;
     cursor.style.top = `${mouseY}px`;
 
-    // Posición del contenido interno (Zoom)
-    // Calculamos el desfase exacto compensando el scroll y el punto central
     const moveX = -mouseX * zoom + (cursor.offsetWidth / 2);
     const moveY = -(mouseY + scrollY) * zoom + (cursor.offsetHeight / 2);
 
     if (cursorZoom) {
         cursorZoom.style.transform = `translate(${moveX}px, ${moveY}px) scale(${zoom})`;
     }
-    
     requestAnimationFrame(updateLupa);
 };
 
@@ -38,27 +53,10 @@ document.addEventListener('mousemove', (e) => {
     mouseY = e.clientY;
 });
 
-// Detectar hover en elementos
-const initHovers = () => {
-    document.querySelectorAll('.hover-trigger').forEach(item => {
-        item.addEventListener('mouseenter', () => cursor.classList.add('active'));
-        item.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-    });
-};
-
-window.onload = () => {
-    syncContent();
-    initHovers();
-    updateLupa(); // Inicia el loop de renderizado suave
-};
-
-// Partículas
-particlesJS('particles-js', {
-    "particles": {
-        "number": { "value": 80 },
-        "color": { "value": "#38bdf8" },
-        "size": { "value": 4 },
-        "line_linked": { "enable": true, "opacity": 0.3 },
-        "move": { "enable": true, "speed": 1 }
-    }
+// 4. INTERACTIVIDAD
+document.querySelectorAll('.hover-trigger').forEach(item => {
+    item.addEventListener('mouseenter', () => cursor.classList.add('active'));
+    item.addEventListener('mouseleave', () => cursor.classList.remove('active'));
 });
+
+updateLupa();
