@@ -13,9 +13,10 @@ body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     cursor: none;
+    scroll-behavior: smooth;
 }
 
-#particles-js { position: fixed; width: 100%; height: 100%; z-index: 1; }
+#particles-js { position: fixed; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
 
 .cursor-follower {
     position: fixed;
@@ -30,7 +31,7 @@ body {
     box-shadow: 0 0 15px var(--accent);
 }
 
-/* NAVBAR CORREGIDA: Ahora siempre visible y alineada */
+/* NAVBAR MEJORADA */
 .navbar {
     position: fixed;
     top: 0;
@@ -38,10 +39,10 @@ body {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    padding: 30px 60px;
+    padding: 35px 60px;
     gap: 40px;
     z-index: 1000;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.95), transparent);
 }
 
 .navbar a {
@@ -53,26 +54,26 @@ body {
     transition: 0.3s;
 }
 
-.navbar a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); }
+.navbar a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent); }
 
-/* HERO: Nombre Blanco Nimai */
+/* HERO - BLANCO NIMAI */
 .hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 10;
     position: relative;
+    z-index: 10;
 }
 
 .hero h1 {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 15vw;
+    font-size: 14vw;
     line-height: 0.8;
-    text-transform: uppercase;
-    letter-spacing: -5px;
     text-align: center;
+    letter-spacing: -6px;
+    text-transform: uppercase;
 }
 
 .hero p {
@@ -80,28 +81,29 @@ body {
     letter-spacing: 12px;
     margin-top: 30px;
     font-weight: 400;
+    font-size: 1.1rem;
 }
 
-/* SECCIONES: Fondo oscuro para contraste */
+/* SECCIONES OSCURAS */
 section {
     padding: 120px 15%;
-    background-color: var(--bg); /* Asegura fondo negro tras el scroll */
+    background-color: var(--bg);
     position: relative;
     z-index: 10;
     border-top: 1px solid var(--border);
 }
 
-.section-title { color: var(--accent); letter-spacing: 4px; margin-bottom: 50px; font-size: 0.8rem; }
-.cv-item h3 { font-size: 3rem; margin-bottom: 10px; }
+.section-title { color: var(--accent); letter-spacing: 4px; margin-bottom: 50px; font-size: 0.8rem; font-weight: 900; }
+.cv-item h3 { font-size: 3rem; margin-bottom: 10px; font-weight: 900; }
 .date { color: #64748b; margin-bottom: 20px; display: block; font-weight: bold; }
 
 .skills-grid { display: flex; flex-wrap: wrap; gap: 15px; }
-.skill-tag { border: 1px solid var(--border); padding: 12px 30px; font-weight: 900; transition: 0.3s; }
-.skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+.skill-tag { border: 1px solid var(--border); padding: 12px 30px; font-weight: 900; transition: 0.3s; font-size: 0.8rem; }
+.skill-tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
 
 .contact-links a { font-size: 4rem; color: var(--text); text-decoration: none; font-weight: 900; display: block; transition: 0.4s; }
 .contact-links a:hover { padding-left: 20px; color: var(--accent); }
 
-/* REVEAL */
-.reveal { opacity: 0; transform: translateY(50px); transition: 1s ease-out; }
+/* ANIMACIÓN */
+.reveal { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
