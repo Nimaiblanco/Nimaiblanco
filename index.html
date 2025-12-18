@@ -82,3 +82,18 @@
     </script>
 </body>
 </html>
+// Seleccionamos todos los enlaces y etiquetas de habilidades
+const hoverables = document.querySelectorAll('a, .skill-tag');
+
+hoverables.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursor.style.width = '80px';
+        cursor.style.height = '80px';
+        cursor.style.backgroundColor = 'rgba(56, 189, 248, 0.3)';
+    });
+    el.addEventListener('mouseleave', () => {
+        cursor.style.width = '50px';
+        cursor.style.height = '50px';
+        cursor.style.backgroundColor = 'rgba(56, 189, 248, 0.15)';
+    });
+});
