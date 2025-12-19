@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
     document.body.classList.add('site-loaded');
 });
 
-// 2. MOVIMENTAÇÃO DO CURSOR (Otimizada para suavidade)
+// 2. MOVIMENTAÇÃO DO CURSOR (60fps constante)
 let mouseX = 0, mouseY = 0;
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -19,7 +19,7 @@ function updateCursor() {
 }
 requestAnimationFrame(updateCursor);
 
-// 3. EFEITOS DE HOVER (Simplificado com seletores combinados)
+// 3. EFEITOS DE HOVER
 const hoverSelectors = '.hover-trigger, .social-icon, .skill-card, .btn-contato, a, button';
 
 document.addEventListener('mouseover', (e) => {
@@ -34,21 +34,22 @@ document.addEventListener('mouseout', (e) => {
     }
 });
 
-// 4. ANIMAÇÃO DE ENTRADA PARA SKILLS (Resolve a sensação de "apertado")
-const observerOptions = { threshold: 0.2 };
-const skillObserver = new IntersectionObserver((entries) => {
+// 4. SCROLL REVEAL (OBSERVADOR GERAL)
+// Esta função ativa tanto as seções quanto os cards de skills
+const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+            entry.target.classList.add('active');
+            // Opcional: para de observar após revelar para ganhar performance
+            revealObserver.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, { threshold: 0.15 });
 
-document.querySelectorAll('.skill-card').forEach(card => {
-    skillObserver.observe(card);
-});
+// Aplica o observador em tudo que tiver a classe .reveal
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// 5. PARTICLES.JS
+// 5. CONFIGURAÇÃO DO PARTICLES.JS
 particlesJS('particles-js', {
     "particles": {
         "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
@@ -66,13 +67,19 @@ particlesJS('particles-js', {
     "retina_detect": true
 });
 
-// 6. SCROLL SUAVE
+// 6. SCROLL SUAVE (Melhorado para considerar o topo da página)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            const offsetTop = targetElement.offsetTop;
+            window.scrollTo({
+                top: offsetTop - 20,
+                behavior: 'smooth'
+            });
         }
     });
 });
