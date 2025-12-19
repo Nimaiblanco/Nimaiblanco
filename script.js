@@ -7,7 +7,7 @@ const cursor = document.getElementById('cursor');
 // 1. MOVIMENTAÇÃO DO CURSOR (LERP OTIMIZADO)
 let mouseX = 0, mouseY = 0;
 let ballX = 0, ballY = 0;
-const speed = 0.2; // Velocidade ideal para resposta imediata sem perder a suavidade
+const speed = 0.2; 
 
 const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
@@ -23,37 +23,37 @@ if (!isTouchDevice && cursor) {
     });
 
     function updateCursor() {
-        // Interpolação para movimento fluido
         ballX += (mouseX - ballX) * speed;
         ballY += (mouseY - ballY) * speed;
         
-        // translate3d envia o processamento para a GPU (Placa de Vídeo) eliminando o lag
+        // GPU acceleration para 60fps constantes
         cursor.style.transform = `translate3d(${ballX}px, ${ballY}px, 0) translate(-50%, -50%)`;
         requestAnimationFrame(updateCursor);
     }
     updateCursor();
 } else if (cursor) {
-    cursor.style.display = 'none'; // Desativa em telas de toque
+    cursor.style.display = 'none'; 
 }
 
-// 2. EFEITO RAIO-X UNIFICADO (EXPANSÃO)
-// Seleciona todos os elementos que devem disparar o aumento do círculo
-const hoverSelectors = '.hover-trigger, .skill-card, .project-card, .btn-contato, .social-icons-minimal a, .contact-links a, .navbar a, .sobre-foto';
+// 2. LÓGICA DE INTERAÇÃO (RAIO-X VS ACTIVE)
+// Seletores para o aumento padrão (branco suave)
+const standardHover = '.hover-trigger, .skill-card, .project-card, .btn-contato, .social-icons-minimal a, .contact-links a, .navbar a';
 
 if (!isTouchDevice) {
     document.addEventListener('mouseover', (e) => {
-        const target = e.target.closest(hoverSelectors);
-        if (target) {
-            // Ativa a classe unificada de Raio-X definida no CSS
+        // Se for a FOTO, ativa o modo RAIO-X (Azul)
+        if (e.target.closest('.sobre-foto')) {
+            cursor.classList.add('x-ray');
+        } 
+        // Se for qualquer outro link/card, ativa o modo ACTIVE (Aumento padrão)
+        else if (e.target.closest(standardHover)) {
             cursor.classList.add('active');
         }
     });
 
     document.addEventListener('mouseout', (e) => {
-        const target = e.target.closest(hoverSelectors);
-        if (target) {
-            cursor.classList.remove('active');
-        }
+        cursor.classList.remove('active');
+        cursor.classList.remove('x-ray');
     });
 }
 
@@ -67,36 +67,31 @@ const revealObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
-// 4. INICIALIZAÇÃO E PARTÍCULAS (VISIBILIDADE MÁXIMA)
+// 4. INICIALIZAÇÃO E PARTÍCULAS
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializa revelação de elementos
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     
-    // Configuração de PartículasJS - Fundo Presente e Vibrante
     if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
         particlesJS('particles-js', {
             "particles": {
                 "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#38bdf8" },
-                "opacity": { "value": 0.5, "random": false },
+                "opacity": { "value": 0.5 },
                 "size": { "value": 2, "random": true },
                 "line_linked": { 
                     "enable": true, 
                     "distance": 150, 
                     "color": "#38bdf8", 
-                    "opacity": 0.3, // Linhas de conexão bem visíveis
+                    "opacity": 0.3, 
                     "width": 1 
                 },
                 "move": { 
                     "enable": true, 
                     "speed": 1.5, 
-                    "direction": "none", 
-                    "out_mode": "out",
-                    "bounce": false
+                    "out_mode": "out"
                 }
             },
             "interactivity": { 
-                "detect_on": "canvas",
                 "events": { 
                     "onhover": { "enable": true, "mode": "grab" },
                     "onclick": { "enable": true, "mode": "push" }
@@ -110,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 5. SCROLL SUAVE (FIX PARA OFFSET DE HEADER)
+// 5. SCROLL SUAVE COM OFFSET (FIX PARA NAVBAR FIXA)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
@@ -119,7 +114,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             e.preventDefault();
-            const headerOffset = 100;
+            const headerOffset = 80;
             const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
             
             window.scrollTo({
