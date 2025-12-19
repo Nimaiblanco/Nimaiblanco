@@ -12,14 +12,16 @@
     cursor: none !important; 
 }
 
-/* --- EFEITO DE REVELAÇÃO (CORRIGIDO) --- */
+/* --- EFEITO DE REVELAÇÃO (Otimizado para ser Visível) --- */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    visibility: hidden; /* Garante que o item não ocupe espaço interativo enquanto invisível */
-    transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), 
-                transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
-                visibility 0.8s;
+    /* Aumentado de 30px para 60px para o movimento ser mais claro */
+    transform: translateY(60px); 
+    visibility: hidden;
+    /* Transição mais lenta (1.2s) e curva mais fluida */
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 1.2s;
     pointer-events: none;
 }
 
@@ -29,6 +31,13 @@
     visibility: visible;
     pointer-events: auto;
 }
+
+/* Efeito Cascata nas Skills: Cada card aparece com um leve atraso */
+.skill-card.reveal:nth-child(1) { transition-delay: 0.1s; }
+.skill-card.reveal:nth-child(2) { transition-delay: 0.2s; }
+.skill-card.reveal:nth-child(3) { transition-delay: 0.3s; }
+.skill-card.reveal:nth-child(4) { transition-delay: 0.4s; }
+.skill-card.reveal:nth-child(5) { transition-delay: 0.5s; }
 
 /* --- EFEITO DE CARREGAMENTO --- */
 body { 
@@ -42,16 +51,15 @@ body {
     position: relative; 
     z-index: 10; 
     width: 100%; 
-    opacity: 1; /* Ajustado de 0 para 1 para evitar que o site suma por completo */
+    opacity: 1;
 }
 
-/* Opcional: Animação suave apenas para o texto da Hero no carregamento */
 body.site-loaded .hero-content {
-    animation: fadeInHero 1.5s ease-out forwards;
+    animation: fadeInHero 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeInHero {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
