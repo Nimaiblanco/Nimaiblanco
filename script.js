@@ -1,5 +1,6 @@
 /**
  * Blanco Nimai Portfolio - Script Corrigido e Otimizado
+ * Ajustes: Partículas mais visíveis, brilho aumentado e interatividade melhorada.
  */
 
 const cursor = document.getElementById('cursor');
@@ -26,7 +27,6 @@ if (!isTouchDevice && cursor) {
         ballX += (mouseX - ballX) * speed;
         ballY += (mouseY - ballY) * speed;
         
-        // Mantemos o translate(-50%, -50%) aqui para garantir centralização perfeita no rastro
         cursor.style.transform = `translate3d(${ballX}px, ${ballY}px, 0) translate(-50%, -50%)`;
         
         requestAnimationFrame(updateCursor);
@@ -45,9 +45,6 @@ if (!isTouchDevice) {
         
         if (target) {
             cursor.classList.add('active');
-            
-            // Se for a foto, adicionamos uma classe específica em vez de mudar o estilo manualmente
-            // Isso permite que o CSS controle o tamanho sem quebrar o mix-blend-mode
             if (target.classList.contains('sobre-foto')) {
                 cursor.classList.add('cursor-large');
             }
@@ -59,7 +56,6 @@ if (!isTouchDevice) {
         if (target) {
             cursor.classList.remove('active');
             cursor.classList.remove('cursor-large');
-            // Removemos as limpezas de style.width/color pois agora tudo é via CSS Class
         }
     });
 }
@@ -77,37 +73,66 @@ const revealObserver = new IntersectionObserver((entries) => {
     rootMargin: "0px 0px -50px 0px" 
 });
 
-// 4. INICIALIZAÇÃO E PARTÍCULAS
+// 4. INICIALIZAÇÃO E PARTÍCULAS (Configurações de Brilho e Visibilidade)
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     
     if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 50, "density": { "enable": true, "value_area": 1000 } },
+                "number": { 
+                    "value": 70, // Aumentado para preencher melhor o fundo claro
+                    "density": { "enable": true, "value_area": 900 } 
+                },
                 "color": { "value": "#38bdf8" },
-                "opacity": { "value": 0.2 },
-                "size": { "value": 1.5 },
+                "opacity": { 
+                    "value": 0.5, // Aumentado (antes 0.2) para partículas mais nítidas
+                    "random": true,
+                    "anim": { "enable": true, "speed": 1, "opacity_min": 0.2, "sync": false }
+                },
+                "size": { 
+                    "value": 2, // Ligeiramente maior para visibilidade
+                    "random": true 
+                },
                 "line_linked": { 
                     "enable": true, 
                     "distance": 150, 
                     "color": "#38bdf8", 
-                    "opacity": 0.05, 
+                    "opacity": 0.25, // Aumentado (antes 0.05) para ver as conexões claramente
                     "width": 1 
                 },
-                "move": { "enable": true, "speed": 0.8 }
+                "move": { 
+                    "enable": true, 
+                    "speed": 1.2, // Movimento mais fluido e perceptível
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
             },
             "interactivity": { 
+                "detect_on": "canvas",
                 "events": { 
-                    "onhover": { "enable": !isTouchDevice, "mode": "grab" } 
-                } 
+                    "onhover": { 
+                        "enable": !isTouchDevice, 
+                        "mode": "grab" // As linhas agora brilham e se conectam ao mouse
+                    },
+                    "onclick": { "enable": true, "mode": "push" }
+                },
+                "modes": {
+                    "grab": { 
+                        "distance": 200, 
+                        "line_linked": { "opacity": 0.6 } // Efeito de conexão forte ao passar o mouse
+                    }
+                }
             },
             "retina_detect": true
         });
     }
 });
 
-// 5. SCROLL SUAVE
+// 5. SCROLL SUAVE (Melhorado com Offset dinâmico)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
@@ -116,7 +141,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             e.preventDefault();
-            const headerOffset = 100;
+            const headerOffset = 80;
             const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
             
             window.scrollTo({
