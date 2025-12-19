@@ -1,4 +1,4 @@
-no te olvides de atualiçar meu script /**
+ /**
  * Blanco Nimai Portfolio - Script Otimizado (Performance & X-Ray)
  */
 
