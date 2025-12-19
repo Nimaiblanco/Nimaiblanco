@@ -23,8 +23,8 @@ function updateCursor() {
 }
 requestAnimationFrame(updateCursor);
 
-// 3. EFEITOS DE HOVER (Expande o cursor ao passar em elementos clicáveis)
-const hoverSelectors = '.hover-trigger, .social-icon, .skill-card, .btn-contato, a, button';
+// 3. EFEITOS DE HOVER (Atualizado para incluir os Project Cards)
+const hoverSelectors = '.hover-trigger, .social-icon, .skill-card, .project-card, .btn-contato, a, button';
 document.addEventListener('mouseover', (e) => {
     if (e.target.closest(hoverSelectors)) cursor.classList.add('active');
 });
