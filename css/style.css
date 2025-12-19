@@ -69,11 +69,15 @@ section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: 
 .skill-item p { opacity: 0.6; line-height: 1.6; font-size: 1.1rem; max-width: 600px; }
 
 /* SEÇÃO DE CONTATO (EMAIL PEQUENO) */
-#contato { align-items: center; text-align: center; }
+#contato { 
+    align-items: center; 
+    text-align: center; 
+    min-height: 60vh; /* Reduzido para não ficar um vácuo muito grande */
+}
 .contact-links { margin-top: 20px; }
 
 .contact-links a { 
-    font-size: 1.2rem; /* Email pequeno e discreto */
+    font-size: 1.2rem; /* Email pequeno e discreto conforme solicitado */
     color: var(--text-main);
     text-decoration: none;
     font-weight: 700;
@@ -92,7 +96,7 @@ section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: 
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s, transform 0.2s, border-color 0.3s;
 }
 #cursor.active { background: rgba(56, 189, 248, 0.3); transform: translate(-50%, -50%) scale(1.5); }
 
