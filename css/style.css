@@ -1,4 +1,5 @@
 :root {
+    /* Ajustado para um tom levemente acima do preto para destacar o fundo */
     --bg: #050505; 
     --accent: #38bdf8;
     --text-main: #ffffff;
@@ -15,6 +16,7 @@
     box-sizing: border-box; 
 }
 
+/* Cursor customizado apenas para dispositivos com mouse */
 @media (pointer: fine) {
     * { cursor: none !important; }
 }
@@ -39,44 +41,30 @@ body {
     top: 0; left: 0;
     width: 100%; height: 100%;
     z-index: 1;
+    /* Aumentado para garantir que o movimento seja visível */
     opacity: 0.6; 
 }
 
-/* --- CURSOR (OTIMIZADO PARA RAIO-X) --- */
+/* --- CURSOR --- */
 #cursor { 
     position: fixed; 
     width: 20px; 
     height: 20px; 
     border: 1.5px solid #fff; 
     border-radius: 50%; 
-    pointer-events: none; /* Previne lag e conflito de clique */
+    pointer-events: none; 
     z-index: 10000; 
-    background-color: #fff; 
-    mix-blend-mode: difference; 
-    /* Apenas transicionamos tamanho e cor, NUNCA o transform (o JS cuida disso) */
-    transition: width 0.4s var(--ease), 
-                height 0.4s var(--ease), 
-                background-color 0.4s var(--ease), 
-                border-color 0.4s var(--ease),
-                opacity 0.3s ease;
-    will-change: transform;
     transform: translate3d(-50%, -50%, 0); 
+    mix-blend-mode: difference; 
+    background-color: #fff; 
+    transition: width 0.3s var(--ease), height 0.3s var(--ease), opacity 0.3s ease;
+    will-change: transform;
 }
 
-/* Efeito Hover Geral */
 #cursor.active {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Efeito Raio-X Específico (Para a foto) */
-#cursor.x-ray {
-    width: 140px;
-    height: 140px;
-    background-color: transparent !important;
-    border: 1px solid var(--accent);
-    mix-blend-mode: normal; /* Garante que o azul do raio-x apareça sobre a foto */
 }
 
 /* --- EFEITO DE REVELAÇÃO --- */
