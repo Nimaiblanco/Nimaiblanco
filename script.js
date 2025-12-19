@@ -16,23 +16,30 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // 3. EFEITO DE EXPANSÃO DO CURSOR EM ELEMENTOS INTERATIVOS
+// Melhorado para usar delegação de eventos mais eficiente
 document.addEventListener('mouseover', (e) => {
+    const target = e.target;
     if (
-        e.target.classList.contains('hover-trigger') || 
-        e.target.closest('.skill-card') || 
-        e.target.closest('.btn-contato') ||
-        e.target.tagName === 'A'
+        target.classList.contains('hover-trigger') || 
+        target.classList.contains('mail-link') || // Garante detecção no e-mail
+        target.closest('.skill-card') || 
+        target.closest('.btn-contato') ||
+        target.tagName === 'A' ||
+        target.tagName === 'BUTTON'
     ) {
         cursor.classList.add('active');
     }
 });
 
 document.addEventListener('mouseout', (e) => {
+    const target = e.target;
     if (
-        e.target.classList.contains('hover-trigger') || 
-        e.target.closest('.skill-card') || 
-        e.target.closest('.btn-contato') ||
-        e.target.tagName === 'A'
+        target.classList.contains('hover-trigger') || 
+        target.classList.contains('mail-link') ||
+        target.closest('.skill-card') || 
+        target.closest('.btn-contato') ||
+        target.tagName === 'A' ||
+        target.tagName === 'BUTTON'
     ) {
         cursor.classList.remove('active');
     }
@@ -59,16 +66,20 @@ particlesJS('particles-js', {
     "retina_detect": true
 });
 
-// 5. SCROLL SUAVE PARA OS LINKS DA NAVBAR
-document.querySelectorAll('.navbar a').forEach(anchor => {
+// 5. SCROLL SUAVE PARA OS LINKS (NAVBAR E BOTÕES)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
+        if (targetId === '#') return; // Evita erro em links vazios
+        
         const targetSection = document.querySelector(targetId);
         
         if (targetSection) {
+            // Ajuste leve para não colar exatamente no topo se tiver navbar fixa
+            const offsetTop = targetSection.offsetTop;
             window.scrollTo({
-                top: targetSection.offsetTop,
+                top: offsetTop,
                 behavior: 'smooth'
             });
         }
