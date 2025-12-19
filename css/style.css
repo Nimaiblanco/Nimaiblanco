@@ -63,7 +63,7 @@ body {
 section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
 .section-title { color: var(--accent); font-size: 0.8rem; letter-spacing: 5px; margin-bottom: 50px; font-weight: 900; }
 
-/* --- SEÇÃO SOBRE (FOTO E ALINHAMENTO FIXO) --- */
+/* --- SEÇÃO SOBRE (FOCO TOTAL EM NITIDEZ) --- */
 .sobre-wrapper {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -104,11 +104,14 @@ section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: 
     position: relative;
     z-index: 2;
     filter: grayscale(100%);
-    transition: 0.5s ease;
+    transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
     
-    /* NITIDEZ EQUILIBRADA - Sem quebrar a imagem */
-    image-rendering: -webkit-optimize-contrast;
-    transform: translateZ(0); 
+    /* CONFIGURAÇÕES DE ALTA DEFINIÇÃO */
+    image-rendering: -webkit-optimize-contrast; /* Chrome/Safari */
+    image-rendering: crisp-edges;               /* Firefox */
+    transform: translateZ(0);                   /* Força aceleração por Hardware */
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 .foto-moldura {
@@ -121,10 +124,13 @@ section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: 
     transition: 0.5s ease;
 }
 
-.sobre-foto:hover img { filter: grayscale(0%); transform: translate(-10px, -10px); }
+.sobre-foto:hover img { 
+    filter: grayscale(0%); 
+    transform: translate(-10px, -10px) scale(1.01); /* Scale suave ajuda na nitidez durante hover */
+}
 .sobre-foto:hover .foto-moldura { transform: translate(10px, 10px); }
 
-/* --- SEÇÃO SKILLS (RESTAURADO E CENTRALIZADO) --- */
+/* --- SEÇÃO SKILLS (CENTRALIZADO) --- */
 #skills { 
     display: flex;
     flex-direction: column;
@@ -167,6 +173,7 @@ section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: 
     height: 40px; 
     margin-bottom: 12px; 
     filter: grayscale(100%); 
+    transition: 0.3s ease;
 }
 
 .skill-card span { font-size: 9px; font-weight: 900; opacity: 0.4; letter-spacing: 1px; }
@@ -176,7 +183,7 @@ section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: 
     border-color: var(--accent); 
     transform: translateY(-8px); 
 }
-.skill-card:hover img { filter: grayscale(0%); }
+.skill-card:hover img { filter: grayscale(0%); transform: scale(1.1); }
 
 .skills-footer { 
     font-size: 10px; 
