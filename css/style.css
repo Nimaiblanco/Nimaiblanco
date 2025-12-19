@@ -66,7 +66,7 @@ body {
     background-color: #fff !important; 
 }
 
-/* --- NAVBAR (Corregida: Letras Azules) --- */
+/* --- NAVBAR (Letras Azules) --- */
 .navbar { 
     position: fixed; 
     top: 40px; 
@@ -77,12 +77,12 @@ body {
 }
 
 .navbar a { 
-    color: var(--accent); /* Cambiado de blanco a Azul */
+    color: var(--accent); 
     text-decoration: none; 
     font-size: 10px; 
     letter-spacing: 2.5px; 
     font-weight: 900; 
-    opacity: 0.7; 
+    opacity: 0.8; 
     transition: 0.3s ease; 
     text-transform: uppercase;
 }
@@ -92,13 +92,15 @@ body {
     text-shadow: 0 0 8px rgba(56, 189, 248, 0.6); 
 }
 
-/* --- SEÇÕES --- */
+/* --- SEÇÕES GERAL --- */
 section { 
     padding: 120px 10%; 
     min-height: 100vh; 
     display: flex; 
     flex-direction: column; 
-    justify-content: center; 
+    justify-content: center;
+    position: relative;
+    z-index: 5;
 }
 
 .section-title { 
@@ -120,6 +122,50 @@ section {
     letter-spacing: -2px;
     text-shadow: 0 10px 30px rgba(0,0,0,0.5); 
 }
+.software-dev {
+    color: var(--accent);
+    letter-spacing: 8px;
+    margin-top: 20px;
+    font-weight: 900;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* --- SOBRE (Restaurado para que la foto no se salga) --- */
+.sobre-wrapper { 
+    display: grid; 
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 80px; 
+    align-items: center; 
+}
+
+.sobre-texto h3 { font-size: 2.8rem; font-weight: 900; margin-bottom: 30px; line-height: 1.1; }
+.sobre-texto p { font-size: 1.05rem; opacity: 0.7; margin-bottom: 25px; max-width: 600px; }
+.sobre-texto strong { color: var(--accent); font-weight: 900; }
+
+.sobre-foto { 
+    position: relative; 
+    width: 100%; 
+    max-width: 320px; 
+    aspect-ratio: 4/5;
+    justify-self: center; 
+}
+
+.sobre-foto img { 
+    width: 100%; height: 100%; object-fit: cover; border-radius: 4px; 
+    position: relative; 
+    z-index: 1; 
+    filter: grayscale(100%); 
+    transition: 0.6s var(--ease); 
+}
+
+.foto-moldura { 
+    position: absolute; top: 20px; left: 20px; width: 100%; height: 100%; 
+    border: 1.5px solid var(--accent); border-radius: 4px; z-index: 0; transition: 0.6s var(--ease); 
+}
+
+.sobre-foto:hover img { filter: grayscale(0%); transform: translate(-10px, -10px); }
+.sobre-foto:hover .foto-moldura { transform: translate(10px, 10px); }
 
 /* --- SKILLS (Grid Horizontal) --- */
 .skills-container { 
@@ -150,6 +196,10 @@ section {
     border-color: var(--accent); 
     transform: translateY(-8px); 
 }
+
+.skill-card img { width: 45px; height: 45px; margin-bottom: 15px; filter: grayscale(100%); transition: 0.3s ease; }
+.skill-card:hover img { filter: grayscale(0%); transform: scale(1.1); }
+.skill-card span { font-size: 11px; font-weight: 900; opacity: 0.7; letter-spacing: 1.5px; text-transform: uppercase; }
 
 /* --- PROJETOS (Títulos Azules y Tags) --- */
 .projects-grid { 
@@ -182,7 +232,7 @@ section {
     font-size: 1.6rem; 
     margin-bottom: 15px; 
     font-weight: 900; 
-    color: var(--accent); /* Títulos en Azul */
+    color: var(--accent); 
     transition: 0.3s;
 }
 
@@ -213,6 +263,8 @@ section {
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 992px) {
     .hero h1 { font-size: 12vw; }
+    .sobre-wrapper { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+    .sobre-texto p { margin: 0 auto 25px auto; }
 }
 
 @media (max-width: 600px) {
@@ -221,8 +273,8 @@ section {
         right: 0; 
         justify-content: center; 
         top: 20px; 
-        padding: 0 20px; 
-        background: rgba(12, 12, 12, 0.7); 
+        padding: 10px 20px; 
+        background: rgba(12, 12, 12, 0.8); 
         backdrop-filter: blur(10px);
     }
     .hero h1 { font-size: 16vw; }
