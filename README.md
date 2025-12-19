@@ -70,7 +70,6 @@ O portfólio está disponível online através do GitHub Pages:
 * **LinkedIn:** [linkedin.com/in/blanconimai](https://linkedin.com/in/blanconimai)
 * **GitHub:** [github.com/Nimaiblanco](https://github.com/Nimaiblanco)
 * **Email:** Blanconimai@gmail.com
-* 
 
 ---
 © 2025 Blanco Nimai. Desenvolvido com foco em qualidade de código e experiência do usuário.
