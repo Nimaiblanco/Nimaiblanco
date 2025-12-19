@@ -1,4 +1,4 @@
-atualiza meu script const cursor = document.getElementById('cursor');
+const cursor = document.getElementById('cursor');
 
 // 1. MOVIMENTAÇÃO DO CURSOR (Suavizado com RequestAnimationFrame)
 let mouseX = 0, mouseY = 0;
