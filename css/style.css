@@ -225,7 +225,7 @@ section {
     gap: 8px; 
     flex-wrap: wrap; 
     margin-top: auto; 
-    padding-right: 45px; /* Evita choque con el icono */
+    padding-right: 45px; 
 }
 
 .project-tags span { 
@@ -255,9 +255,9 @@ section {
     transform: scale(1.2) rotate(10deg); 
 }
 
-/* --- NUEVO FOOTER ESTILO IMAGEN --- */
+/* --- FOOTER (Actualizado: Sin círculo y texto negro) --- */
 .site-footer {
-    background-color: #eeeeee; /* Gris claro de la imagen */
+    background-color: #eeeeee; 
     color: #000000;
     padding: 100px 0 0 0;
     font-family: 'Inter', sans-serif;
@@ -279,27 +279,17 @@ section {
     font-weight: 900;
     letter-spacing: 1.5px;
     margin-bottom: 25px;
-    position: relative;
-    display: inline-block;
+    color: #000000; /* Color negro aplicado aquí */
+    text-transform: uppercase;
 }
 
-/* Círculo negro en CONTATO */
+/* El círculo negro ha sido eliminado */
 .footer-column:first-child h4::before {
-    content: '';
-    position: absolute;
-    left: -12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 38px;
-    height: 38px;
-    background: #000;
-    border-radius: 50%;
-    z-index: -1;
+    display: none;
 }
 
 .footer-column:first-child h4 {
-    color: #fff;
-    padding-left: 8px;
+    padding-left: 0;
 }
 
 .contact-info a {
