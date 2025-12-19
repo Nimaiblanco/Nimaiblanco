@@ -1,5 +1,5 @@
 /**
- * Blanco Nimai Portfolio - Script Optimizado con Interacción de Partículas
+ * Blanco Nimai Portfolio - Script Final Otimizado
  */
 
 const cursor = document.getElementById('cursor');
@@ -26,7 +26,7 @@ if (!isTouchDevice && cursor) {
         ballX += (mouseX - ballX) * speed;
         ballY += (mouseY - ballY) * speed;
         
-        // Se añade pointer-events none para asegurar que las partículas sientan el mouse real
+        // Importante: impede que o cursor bloqueie o clique e a detecção das partículas
         cursor.style.pointerEvents = "none";
         cursor.style.transform = `translate3d(${ballX}px, ${ballY}px, 0) translate(-50%, -50%)`;
         
@@ -37,7 +37,8 @@ if (!isTouchDevice && cursor) {
     cursor.style.display = 'none'; 
 }
 
-// 2. EFEITOS DE HOVER (Corrigido para Rayos X)
+// 2. EFEITOS DE HOVER (Atualizado para o novo botão de CV)
+// Adicionamos explicitamente o seletor do botão de currículo
 const hoverSelectors = '.hover-trigger, .skill-card, .project-card, .btn-contato, .social-icons a, .contact-info a, .navbar a, .sobre-foto';
 
 if (!isTouchDevice) {
@@ -69,17 +70,14 @@ const revealObserver = new IntersectionObserver((entries) => {
     rootMargin: "0px 0px -50px 0px" 
 });
 
-// 4. INICIALIZAÇÃO E PARTÍCULAS (Con Interacción Activada)
+// 4. INICIALIZAÇÃO E PARTÍCULAS
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     
     if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
         particlesJS('particles-js', {
             "particles": {
-                "number": { 
-                    "value": 90, 
-                    "density": { "enable": true, "value_area": 800 } 
-                },
+                "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#38bdf8" },
                 "opacity": { 
                     "value": 0.7, 
@@ -87,46 +85,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     "anim": { "enable": true, "speed": 1, "opacity_min": 0.3, "sync": false }
                 },
                 "size": { 
-                    "value": 3, 
-                    "random": true,
+                    "value": 3, "random": true,
                     "anim": { "enable": true, "speed": 2, "size_min": 0.5, "sync": false }
                 },
                 "line_linked": { 
-                    "enable": true, 
-                    "distance": 150, 
-                    "color": "#38bdf8", 
-                    "opacity": 0.4, 
-                    "width": 1.2
+                    "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.4, "width": 1.2
                 },
                 "move": { 
-                    "enable": true, 
-                    "speed": 1.5, 
-                    "direction": "none",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
+                    "enable": true, "speed": 1.5, "direction": "none", "random": true, "out_mode": "out", "bounce": false
                 }
             },
             "interactivity": { 
-                "detect_on": "window", // Cambiado a window para mejor respuesta
+                "detect_on": "window", 
                 "events": { 
-                    "onhover": { 
-                        "enable": !isTouchDevice, 
-                        "mode": "grab" // Las partículas se conectan al cursor
-                    },
-                    "onclick": { 
-                        "enable": true, 
-                        "mode": "push" 
-                    },
+                    "onhover": { "enable": !isTouchDevice, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
                     "resize": true
                 },
                 "modes": {
-                    "grab": { 
-                        "distance": 200, 
-                        "line_linked": { "opacity": 1 } 
-                    },
-                    "repulse": { "distance": 100, "duration": 0.4 },
+                    "grab": { "distance": 200, "line_linked": { "opacity": 1 } },
                     "push": { "particles_nb": 4 }
                 }
             },
@@ -135,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 5. SCROLL SUAVE (Offset dinâmico)
+// 5. SCROLL SUAVE
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
