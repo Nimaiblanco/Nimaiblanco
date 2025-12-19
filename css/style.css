@@ -41,7 +41,8 @@ body {
     width: 100%; height: 100%;
     z-index: 1;
     opacity: 1 !important; 
-    pointer-events: none; 
+    /* Cambiado para permitir interacción con el cursor */
+    pointer-events: all; 
 }
 
 /* --- CURSOR (Efecto Rayos X) --- */
@@ -128,7 +129,7 @@ section {
     color: var(--accent);
     font-size: 1.2rem;
     letter-spacing: 5px;
-    font-weight: 400;
+    font-weight: 900;
     margin-top: 20px;
     text-transform: uppercase;
 }
