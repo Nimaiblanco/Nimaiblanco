@@ -12,6 +12,20 @@
     cursor: none !important; 
 }
 
+/* --- EFEITO DE REVELAÇÃO (NOVO) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+    pointer-events: none; /* Evita interferência antes de aparecer */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
 /* --- EFEITO DE CARREGAMENTO --- */
 body { 
     background-color: var(--bg); 
@@ -133,7 +147,7 @@ section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: 
 .sobre-foto:hover img { filter: grayscale(0%); transform: translate(-10px, -10px); }
 .sobre-foto:hover .foto-moldura { transform: translate(10px, 10px); }
 
-/* --- SEÇÃO SKILLS (SOLUÇÃO DEFINITIVA) --- */
+/* --- SEÇÃO SKILLS --- */
 #skills { 
     display: flex; 
     flex-direction: column; 
@@ -157,16 +171,15 @@ section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: 
     max-width: 1100px;
 }
 
-/* O segredo está no flex-basis: 160px e remoção do width/height fixo */
 .skill-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 35px 25px; 
     border-radius: 20px;
     
-    flex: 1 1 160px; /* Cresce e encolhe conforme necessário, base de 160px */
-    max-width: 200px; /* Não deixa ficar exageradamente largo */
-    min-height: 180px; /* Garante espaço vertical uniforme */
+    flex: 1 1 160px;
+    max-width: 200px;
+    min-height: 180px;
     
     display: flex; 
     flex-direction: column; 
@@ -267,7 +280,7 @@ html { scroll-behavior: smooth; }
     
     .skills-container { gap: 20px; }
     .skill-card { 
-        flex: 1 1 130px; /* Permite que caibam 2 por linha em telas pequenas */
+        flex: 1 1 130px;
         min-height: 150px; 
     }
 }
