@@ -20,7 +20,6 @@ body {
     overflow-x: hidden; 
 }
 
-/* O site começa invisível */
 #main-wrapper { 
     position: relative; 
     z-index: 10; 
@@ -30,7 +29,6 @@ body {
     transition: opacity 1.5s ease-out, transform 1.5s ease-out;
 }
 
-/* Quando o JS carregar, o site aparece */
 body.site-loaded #main-wrapper {
     opacity: 1;
     transform: translateY(0);
@@ -199,23 +197,31 @@ section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: 
 }
 .skill-card:hover img { filter: grayscale(0%); transform: scale(1.1); }
 
-/* --- SEÇÃO CONTATO E E-MAIL --- */
+/* --- SEÇÃO CONTATO (CORREÇÃO DE COR BRANCA) --- */
 .contact-links {
     margin-top: 20px;
     text-align: center;
 }
 
 .mail-link {
-    color: #ffffff !important; /* Força a cor branca como você pediu */
-    text-decoration: none;
-    font-size: clamp(1.2rem, 4vw, 2.5rem); /* Tamanho responsivo */
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important; /* Força o branco em navegadores Webkit */
+    text-decoration: none !important;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
     font-weight: 900;
     transition: 0.3s ease;
     opacity: 0.9;
 }
 
+/* Garante que o link não mude de cor após visitado ou clicado */
+.mail-link:visited, .mail-link:active, .mail-link:focus {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
 .mail-link:hover {
-    color: var(--accent) !important; /* Brilha em azul no hover */
+    color: var(--accent) !important;
+    -webkit-text-fill-color: var(--accent) !important;
     opacity: 1;
 }
 
@@ -238,8 +244,6 @@ section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: 
     z-index: 9999; 
     transform: translate(-50%, -50%); 
     transition: width 0.3s, height 0.3s, background 0.3s;
-    
-    /* O SEGREDO DO CONTRASTE */
     mix-blend-mode: difference; 
     background-color: #ffffff; 
 }
