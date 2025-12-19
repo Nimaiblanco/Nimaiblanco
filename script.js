@@ -3,11 +3,11 @@ const cursor = document.getElementById('cursor');
 // 1. CARREGAMENTO INICIAL
 window.addEventListener('load', () => {
     document.body.classList.add('site-loaded');
-    // Força uma verificação de reveal logo após o carregamento
+    // Força uma verificação de reveal logo após o carregamento para itens que já estão na tela
     checkReveal();
 });
 
-// 2. MOVIMENTAÇÃO DO CURSOR
+// 2. MOVIMENTAÇÃO DO CURSOR (Suavizado com RequestAnimationFrame)
 let mouseX = 0, mouseY = 0;
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -23,7 +23,7 @@ function updateCursor() {
 }
 requestAnimationFrame(updateCursor);
 
-// 3. EFEITOS DE HOVER
+// 3. EFEITOS DE HOVER (Expande o cursor ao passar em elementos clicáveis)
 const hoverSelectors = '.hover-trigger, .social-icon, .skill-card, .btn-contato, a, button';
 document.addEventListener('mouseover', (e) => {
     if (e.target.closest(hoverSelectors)) cursor.classList.add('active');
@@ -32,24 +32,25 @@ document.addEventListener('mouseout', (e) => {
     if (e.target.closest(hoverSelectors)) cursor.classList.remove('active');
 });
 
-// 4. SCROLL REVEAL (MELHORADO)
+// 4. SCROLL REVEAL (Detecta entrada de elementos na tela)
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
+            // Para de observar após animar para economizar recursos
             revealObserver.unobserve(entry.target);
         }
     });
 }, { 
-    threshold: 0.1, // Dispara com apenas 10% de visibilidade
+    threshold: 0.1, 
     rootMargin: "0px 0px -50px 0px" 
 });
 
 function checkReveal() {
     const elements = document.querySelectorAll('.reveal');
     elements.forEach(el => {
-        // Se o elemento já estiver na parte visível da tela, ativa agora
         const rect = el.getBoundingClientRect();
+        // Se o elemento já estiver visível (ex: topo da página), ativa imediatamente
         if (rect.top < window.innerHeight) {
             el.classList.add('active');
         }
@@ -57,7 +58,7 @@ function checkReveal() {
     });
 }
 
-// 5. PARTICLES.JS (Com verificação de existência)
+// 5. CONFIGURAÇÃO PARTICLES.JS
 if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
     particlesJS('particles-js', {
         "particles": {
@@ -77,7 +78,7 @@ if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js'
     });
 }
 
-// 6. SCROLL SUAVE
+// 6. SCROLL SUAVE PARA LINKS INTERNOS
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
