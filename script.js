@@ -1,9 +1,9 @@
 const cursor = document.getElementById('cursor');
 
-// 1. MOVIMENTAÇÃO DO CURSOR (Suavizado com RequestAnimationFrame)
+// 1. MOVIMENTAÇÃO DO CURSOR (Suavizado com Interpolação)
 let mouseX = 0, mouseY = 0;
 let ballX = 0, ballY = 0;
-const speed = 0.2; 
+const speed = 0.15; // Velocidade do rastro (ajuste entre 0.1 e 0.2)
 
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -12,31 +12,32 @@ document.addEventListener('mousemove', (e) => {
 
 function updateCursor() {
     if (cursor) {
+        // Cálculo suave de aproximação
         ballX += (mouseX - ballX) * speed;
         ballY += (mouseY - ballY) * speed;
-        cursor.style.transform = `translate(calc(${ballX}px - 50%), calc(${ballY}px - 50%))`;
+        
+        // Atualiza posição centralizada
+        cursor.style.left = ballX + 'px';
+        cursor.style.top = ballY + 'px';
     }
     requestAnimationFrame(updateCursor);
 }
 requestAnimationFrame(updateCursor);
 
-// 2. EFEITOS DE HOVER (Atualizado para incluir novos elementos do footer)
-const hoverSelectors = '.hover-trigger, .social-icon, .skill-card, .project-card, .btn-contato, .social-icons-minimal a, .contact-links a, a, button';
+// 2. EFEITO DE HOVER UNIFICADO (Raio-X)
+// Usamos a classe 'hover-trigger' que você colocou estrategicamente no HTML
+const triggers = document.querySelectorAll('.hover-trigger');
 
-document.addEventListener('mouseover', (e) => {
-    if (e.target.closest(hoverSelectors)) {
-        cursor.style.width = '50px';  // Aumenta o cursor no hover
-        cursor.style.height = '50px';
-        cursor.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-    }
-});
-
-document.addEventListener('mouseout', (e) => {
-    if (e.target.closest(hoverSelectors)) {
-        cursor.style.width = '25px'; // Volta ao normal
+triggers.forEach(trigger => {
+    trigger.addEventListener('mouseenter', () => {
+        cursor.style.width = '120px'; // Aumenta para o efeito de "lupa"
+        cursor.style.height = '120px';
+    });
+    
+    trigger.addEventListener('mouseleave', () => {
+        cursor.style.width = '25px'; // Volta ao tamanho original
         cursor.style.height = '25px';
-        cursor.style.backgroundColor = '#fff';
-    }
+    });
 });
 
 // 3. SCROLL REVEAL (Intersection Observer)
@@ -44,17 +45,15 @@ const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            // revealObserver.unobserve(entry.target); // Opcional: remover para animar sempre que entrar na tela
         }
     });
 }, { 
-    threshold: 0.10, // Um pouco mais sensível para telas menores
-    rootMargin: "0px 0px -20px 0px" 
+    threshold: 0.12, 
+    rootMargin: "0px 0px -50px 0px" 
 });
 
 function initReveal() {
-    const elements = document.querySelectorAll('.reveal');
-    elements.forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 }
 
 // 4. CARREGAMENTO INICIAL
@@ -75,14 +74,13 @@ if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js'
             "move": { "enable": true, "speed": 1 }
         },
         "interactivity": { 
-            "detect_on": "canvas", 
             "events": { "onhover": { "enable": true, "mode": "grab" }, "resize": true } 
         },
         "retina_detect": true
     });
 }
 
-// 6. SCROLL SUAVE (Correção de offset para a Navbar fixa)
+// 6. SCROLL SUAVE
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -90,7 +88,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetElement = document.querySelector(targetId);
         
         if (targetElement) {
-            const headerOffset = 100; // Espaço para não cobrir o título da seção
+            const headerOffset = 100;
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
