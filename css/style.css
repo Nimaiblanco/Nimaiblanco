@@ -186,10 +186,11 @@ section {
 .sobre-foto:hover img { filter: grayscale(0%); transform: translate(-10px, -10px); }
 .sobre-foto:hover .foto-moldura { transform: translate(10px, 10px); }
 
-/* --- SKILLS --- */
+/* --- SKILLS (Ajustado para Uniformidade) --- */
 .skills-container { 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    /* Forzamos a que todas las columnas tengan el mismo ancho mínimo */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
     gap: 25px;
     width: 100%;
 }
@@ -197,13 +198,16 @@ section {
 .skill-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    padding: 35px 20px; 
+    padding: 40px 20px; 
     border-radius: 12px;
     display: flex; 
     flex-direction: column; 
     align-items: center;
+    justify-content: center;
+    text-align: center;
     transition: 0.4s var(--ease);
     backdrop-filter: blur(8px);
+    min-height: 160px; /* Altura mínima uniforme */
 }
 
 .skill-card:hover { 
@@ -308,7 +312,7 @@ section {
     text-transform: uppercase;
 }
 
-/* --- SOCIAL ICONS (ATUALIZADO) --- */
+/* --- SOCIAL ICONS (OPTIMIZADO) --- */
 .social-icons { 
     display: flex; 
     gap: 30px; 
@@ -316,15 +320,16 @@ section {
 
 .social-icons a { 
     color: #000; 
-    font-size: 26px; 
     transition: 0.3s var(--ease); 
     text-decoration: none;
-    /* ESSA REGRA ESCONDE O TEXTO SE VOCÊ ESQUECER NO HTML */
-    font-size: 0; 
+    font-size: 0; /* Oculta cualquier texto accidental */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-icons a i {
-    font-size: 26px; /* Garante que o ícone apareça mesmo com font-size 0 no pai */
+    font-size: 26px; /* Define el tamaño real del icono */
 }
 
 .social-icons a:hover { 
