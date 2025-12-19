@@ -1,53 +1,54 @@
 const cursor = document.getElementById('cursor');
 
-// 1. EFEITO DE CARREGAMENTO (FADE-IN INICIAL)
+// 1. CARREGAMENTO INICIAL
 window.addEventListener('load', () => {
     document.body.classList.add('site-loaded');
 });
 
-// 2. MOVIMENTAÇÃO DO CURSOR CUSTOMIZADO
+// 2. MOVIMENTAÇÃO DO CURSOR (Otimizada para suavidade)
+let mouseX = 0, mouseY = 0;
 document.addEventListener('mousemove', (e) => {
-    // Usando requestAnimationFrame para garantir 60fps e suavidade
-    requestAnimationFrame(() => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 });
 
-// 3. EFEITO DE EXPANSÃO DO CURSOR (DELEGAÇÃO DE EVENTOS)
-// Ativa o cursor expandido ao entrar em elementos interativos
+function updateCursor() {
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top = mouseY + 'px';
+    requestAnimationFrame(updateCursor);
+}
+requestAnimationFrame(updateCursor);
+
+// 3. EFEITOS DE HOVER (Simplificado com seletores combinados)
+const hoverSelectors = '.hover-trigger, .social-icon, .skill-card, .btn-contato, a, button';
+
 document.addEventListener('mouseover', (e) => {
-    const target = e.target;
-    
-    if (
-        target.classList.contains('hover-trigger') || 
-        target.closest('.social-icon') || 
-        target.closest('.skill-card') || 
-        target.closest('.btn-contato') ||
-        target.tagName === 'A' ||
-        target.tagName === 'BUTTON'
-    ) {
+    if (e.target.closest(hoverSelectors)) {
         cursor.classList.add('active');
     }
 });
 
-// Remove a expansão ao sair dos elementos
 document.addEventListener('mouseout', (e) => {
-    const target = e.target;
-    
-    if (
-        target.classList.contains('hover-trigger') || 
-        target.closest('.social-icon') || 
-        target.closest('.skill-card') || 
-        target.closest('.btn-contato') ||
-        target.tagName === 'A' ||
-        target.tagName === 'BUTTON'
-    ) {
+    if (e.target.closest(hoverSelectors)) {
         cursor.classList.remove('active');
     }
 });
 
-// 4. CONFIGURAÇÃO DO PARTICLES.JS (EFEITO DE FUNDO)
+// 4. ANIMAÇÃO DE ENTRADA PARA SKILLS (Resolve a sensação de "apertado")
+const observerOptions = { threshold: 0.2 };
+const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.skill-card').forEach(card => {
+    skillObserver.observe(card);
+});
+
+// 5. PARTICLES.JS
 particlesJS('particles-js', {
     "particles": {
         "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
@@ -60,30 +61,18 @@ particlesJS('particles-js', {
     },
     "interactivity": { 
         "detect_on": "canvas", 
-        "events": { 
-            "onhover": { "enable": true, "mode": "grab" }, // Efeito de atrair partículas
-            "resize": true 
-        } 
+        "events": { "onhover": { "enable": true, "mode": "grab" }, "resize": true } 
     },
     "retina_detect": true
 });
 
-// 5. SCROLL SUAVE PARA OS LINKS INTERNOS
+// 6. SCROLL SUAVE
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            // Calcula a posição e rola suavemente
-            const offsetTop = targetSection.offsetTop;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
         }
     });
 });
