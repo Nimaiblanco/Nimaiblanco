@@ -3,7 +3,7 @@ const cursor = document.getElementById('cursor');
 // 1. MOVIMENTAÇÃO DO CURSOR (Suavizado com RequestAnimationFrame)
 let mouseX = 0, mouseY = 0;
 let ballX = 0, ballY = 0;
-const speed = 0.2; // Ajuste para mais ou menos suavidade (0.1 a 1.0)
+const speed = 0.2; 
 
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -12,39 +12,46 @@ document.addEventListener('mousemove', (e) => {
 
 function updateCursor() {
     if (cursor) {
-        // Interpolação para um movimento mais fluido (o cursor persegue o mouse)
         ballX += (mouseX - ballX) * speed;
         ballY += (mouseY - ballY) * speed;
-        
         cursor.style.transform = `translate(calc(${ballX}px - 50%), calc(${ballY}px - 50%))`;
     }
     requestAnimationFrame(updateCursor);
 }
 requestAnimationFrame(updateCursor);
 
-// 2. EFEITOS DE HOVER
-const hoverSelectors = '.hover-trigger, .social-icon, .skill-card, .project-card, .btn-contato, a, button';
+// 2. EFEITOS DE HOVER (Atualizado para incluir novos elementos do footer)
+const hoverSelectors = '.hover-trigger, .social-icon, .skill-card, .project-card, .btn-contato, .social-icons-minimal a, .contact-links a, a, button';
+
 document.addEventListener('mouseover', (e) => {
-    if (e.target.closest(hoverSelectors)) cursor.classList.add('active');
-});
-document.addEventListener('mouseout', (e) => {
-    if (e.target.closest(hoverSelectors)) cursor.classList.remove('active');
+    if (e.target.closest(hoverSelectors)) {
+        cursor.style.width = '50px';  // Aumenta o cursor no hover
+        cursor.style.height = '50px';
+        cursor.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+    }
 });
 
-// 3. SCROLL REVEAL (Otimizado com Intersection Observer)
+document.addEventListener('mouseout', (e) => {
+    if (e.target.closest(hoverSelectors)) {
+        cursor.style.width = '25px'; // Volta ao normal
+        cursor.style.height = '25px';
+        cursor.style.backgroundColor = '#fff';
+    }
+});
+
+// 3. SCROLL REVEAL (Intersection Observer)
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            revealObserver.unobserve(entry.target); // Para de observar após animar
+            // revealObserver.unobserve(entry.target); // Opcional: remover para animar sempre que entrar na tela
         }
     });
 }, { 
-    threshold: 0.15, // Ativa quando 15% do elemento aparece
-    rootMargin: "0px 0px -50px 0px" 
+    threshold: 0.10, // Um pouco mais sensível para telas menores
+    rootMargin: "0px 0px -20px 0px" 
 });
 
-// Inicializa o Reveal
 function initReveal() {
     const elements = document.querySelectorAll('.reveal');
     elements.forEach(el => revealObserver.observe(el));
@@ -52,7 +59,6 @@ function initReveal() {
 
 // 4. CARREGAMENTO INICIAL
 window.addEventListener('load', () => {
-    document.body.classList.add('site-loaded');
     initReveal();
 });
 
@@ -60,13 +66,13 @@ window.addEventListener('load', () => {
 if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
     particlesJS('particles-js', {
         "particles": {
-            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+            "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
             "color": { "value": "#38bdf8" },
             "shape": { "type": "circle" },
-            "opacity": { "value": 0.5 },
-            "size": { "value": 3 },
-            "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.3, "width": 1 },
-            "move": { "enable": true, "speed": 1.5 }
+            "opacity": { "value": 0.3 },
+            "size": { "value": 2 },
+            "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.2, "width": 1 },
+            "move": { "enable": true, "speed": 1 }
         },
         "interactivity": { 
             "detect_on": "canvas", 
@@ -76,18 +82,17 @@ if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js'
     });
 }
 
-// 6. SCROLL SUAVE PARA LINKS INTERNOS
+// 6. SCROLL SUAVE (Correção de offset para a Navbar fixa)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
+        
         if (targetElement) {
-            const offset = 20;
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = targetElement.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
+            const headerOffset = 100; // Espaço para não cobrir o título da seção
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
             window.scrollTo({
                 top: offsetPosition,
