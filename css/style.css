@@ -41,11 +41,10 @@ body {
     top: 0; left: 0;
     width: 100%; height: 100%;
     z-index: 1;
-    /* Aumentado para garantir que o movimento seja visível */
     opacity: 0.6; 
 }
 
-/* --- CURSOR --- */
+/* --- CURSOR (Efecto Rayos X Unificado) --- */
 #cursor { 
     position: fixed; 
     width: 20px; 
@@ -55,6 +54,7 @@ body {
     pointer-events: none; 
     z-index: 10000; 
     transform: translate3d(-50%, -50%, 0); 
+    /* El modo difference sobre fondo blanco crea la inversión total */
     mix-blend-mode: difference; 
     background-color: #fff; 
     transition: width 0.3s var(--ease), height 0.3s var(--ease), opacity 0.3s ease;
@@ -64,7 +64,8 @@ body {
 #cursor.active {
     width: 65px;
     height: 65px;
-    background-color: rgba(255, 255, 255, 0.1);
+    /* Cambiado de 0.1 de opacidad a blanco sólido para mantener el efecto Rayo X */
+    background-color: #fff; 
 }
 
 /* --- EFEITO DE REVELAÇÃO --- */
