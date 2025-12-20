@@ -7,7 +7,7 @@
 
 <a href="https://nimaiblanco.github.io/Portafolio/" target="_blank">
   <p align="center">
-    <img src="assets/Apocalipsis.jpg" width="100%" style="border-radius: 12px; border: 3px solid #38bdf8;" alt="Clique para ver o Portfólio" />
+    <img src="https://raw.githubusercontent.com/Nimaiblanco/Portafolio/main/assets/Apocalipsis.jpg" width="100%" style="border-radius: 12px; border: 3px solid #38bdf8;" alt="Visitar Portfólio Interativo" />
     <br>
     <img src="https://img.shields.io/badge/▶_CLIQUE_AQUI_PARA_VER_A_EXPERIÊNCIA_AO_VIVO-38bdf8?style=for-the-badge" style="margin-top: 10px;" />
   </p>
@@ -25,34 +25,26 @@
 
 <br>
 
-Este repositório contém o código do meu portfólio pessoal, projetado para demonstrar minhas habilidades em **Java, Kotlin e Spring Boot** através de uma interface moderna e performática.
+Este repositorio contiene el código de mi portafolio personal, diseñado para demostrar mis habilidades en **Java, Kotlin y Spring Boot** a través de una interfaz moderna y performática.
 
 </div>
 
 ---
 
-## 💻 Tecnologias & Habilidades
+## 💻 Tecnologías & Habilidades
 
 * **Backend & JVM:** Java 17+, Kotlin, Spring Boot (Security/JWT/Data).
-* **Frontend:** JavaScript Puro (ES6+), HTML5 Semântico, CSS3 Moderno.
-* **Animações:** `Particles.js` para fundo interativo e `Intersection Observer`.
-* **DevOps & Data:** Oracle SQL, Docker, Arquitetura MVC e REST APIs.
+* **Frontend:** JavaScript Puro (ES6+), HTML5 Semántico, CSS3 Moderno.
+* **Animaciones:** `Particles.js` para fondo interactivo e `Intersection Observer`.
+* **DevOps & Data:** Oracle SQL, Docker, Arquitectura MVC y REST APIs.
 
 ---
 
-## 🛠️ Destaques do Projeto
+## 🛠️ Destaques del Proyecto
 
-* **Performance Otimizada:** Implementação de `requestAnimationFrame` para fluidez total.
-* **Interatividade:** Canvas dinâmico que reage ao cursor, elevando a experiência do usuário.
-* **UX/UI:** Design minimalista e responsivo focado em recrutadores de tech.
-
----
-
-## 📁 Principais Projetos Exibidos
-
-1.  **BioPulse:** API REST de saúde com Spring Security e JWT.
-2.  **Fintech System:** Sistema de gestão financeira com Oracle SQL.
-3.  **MindCare:** Aplicação mobile de bem-estar desenvolvida com Kotlin.
+* **Performance Optimizada:** Implementación de `requestAnimationFrame` para fluidez total.
+* **Interactividad:** Canvas dinámico que reacciona al cursor, elevando la experiencia del usuario.
+* **UX/UI:** Diseño minimalista y responsivo enfocado en reclutadores IT.
 
 ---
 
@@ -64,7 +56,7 @@ Este repositório contém o código do meu portfólio pessoal, projetado para de
 
 ---
 
-## 📩 Vamos conectar?
+## 📩 Vamos a conectar
 
 * **LinkedIn:** [linkedin.com/in/blanconimai](https://linkedin.com/in/blanconimai)
 * **Email:** Blanconimai@gmail.com
