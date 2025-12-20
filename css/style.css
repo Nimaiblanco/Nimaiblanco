@@ -71,6 +71,7 @@ body {
     display: flex; 
     gap: 30px; 
     z-index: 1000; 
+    user-select: none; /* Impede seleção na navegação */
 }
 
 .navbar a { 
@@ -117,6 +118,11 @@ section {
     line-height: 0.85; 
     text-transform: uppercase; 
     letter-spacing: -2px;
+    
+    /* BLOQUEIO DE SELEÇÃO E MELHORIA DE INTERAÇÃO */
+    user-select: none; 
+    -webkit-user-select: none; 
+    pointer-events: none; 
 }
 
 .software-dev {
@@ -126,6 +132,8 @@ section {
     font-weight: 900;
     margin-top: 20px;
     text-transform: uppercase;
+    user-select: none;
+    pointer-events: none;
 }
 
 /* --- SOBRE & BOTÃO CV --- */
@@ -186,10 +194,9 @@ section {
 .sobre-foto:hover img { filter: grayscale(0%); transform: translate(-10px, -10px); }
 .sobre-foto:hover .foto-moldura { transform: translate(10px, 10px); }
 
-/* --- SKILLS (Ajustado para Uniformidade) --- */
+/* --- SKILLS (TOTALMENTE UNIFORME) --- */
 .skills-container { 
     display: grid;
-    /* Forzamos a que todas las columnas tengan el mismo ancho mínimo */
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
     gap: 25px;
     width: 100%;
@@ -203,11 +210,18 @@ section {
     display: flex; 
     flex-direction: column; 
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Centraliza verticalmente */
     text-align: center;
     transition: 0.4s var(--ease);
     backdrop-filter: blur(8px);
-    min-height: 160px; /* Altura mínima uniforme */
+    height: 100%; /* Faz todos os cards da linha terem a mesma altura */
+    min-height: 180px; /* Altura fixa mínima para evitar cards "encolhidos" */
+}
+
+.skill-card img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
 }
 
 .skill-card:hover { 
@@ -312,7 +326,7 @@ section {
     text-transform: uppercase;
 }
 
-/* --- SOCIAL ICONS (OPTIMIZADO) --- */
+/* --- SOCIAL ICONS --- */
 .social-icons { 
     display: flex; 
     gap: 30px; 
@@ -322,14 +336,14 @@ section {
     color: #000; 
     transition: 0.3s var(--ease); 
     text-decoration: none;
-    font-size: 0; /* Oculta cualquier texto accidental */
+    font-size: 0; 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .social-icons a i {
-    font-size: 26px; /* Define el tamaño real del icono */
+    font-size: 26px; 
 }
 
 .social-icons a:hover { 
