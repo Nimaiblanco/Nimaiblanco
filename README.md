@@ -7,7 +7,7 @@
 
 <a href="https://nimaiblanco.github.io/Portafolio/" target="_blank">
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/d7e7bdd7-abd6-4e37-b590-30aebdaed1c5" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" alt="Visitar Portfólio Interativo" />
+    <img src="https://github.com/user-attachments/assets/d7e7bdd7-abd6-4e37-b590-30aebdaed1c5" width="100%" style="max-width: 100%; border-radius: 10px;" alt="Portfólio Animado" />
     <br>
     <sub><b>✨ Experiência Interativa: Clique na imagem para abrir o site ao vivo</b></sub>
   </p>
@@ -15,7 +15,7 @@
 
 ---
 
-## 🌐 [CLIQUE AQUI PARA VISITAR O PORTFÓLIO AO VIVO](https://nimaiblanco.github.io/Portafolio/)
+## 🌐 [VISITAR PORTFÓLIO AO VIVO](https://nimaiblanco.github.io/Portafolio/)
 
 <br>
 
@@ -50,10 +50,10 @@ Este repositório contém o código do meu portfólio pessoal, projetado para de
 
 ## 📩 Vamos conectar?
 
-* **LinkedIn:** [linkedin.com/in/blanconimai](https://linkedin.com/in/blanconimai).
-* **Email:** Blanconimai@gmail.com.
+* **LinkedIn:** [linkedin.com/in/blanconimai](https://linkedin.com/in/blanconimai)
+* **Email:** Blanconimai@gmail.com
 
 ---
 <div align="center">
-© 2025 Blanco Nimai. Desenvolvido com foco em qualidade de código e experiência do usuário.
+© 2025 Blanco Nimai. Desenvolvido com foco em qualidade de código.
 </div>
