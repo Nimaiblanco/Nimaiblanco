@@ -7,7 +7,8 @@
 
 <a href="https://nimaiblanco.github.io/Portafolio/" target="_blank">
   <p align="center">
-    <img src="https://cdn.jsdelivr.net/gh/Nimaiblanco/Portafolio@main/assets/portafolio-animado.gif" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" alt="Portfólio Animado" />
+    <video src="https://github.com/Nimaiblanco/Portafolio/raw/main/assets/portafolio-animado.mp4" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" autoplay loop muted playsinline>
+    </video>
     <br>
     <sub><b>✨ Experiência Interativa: Clique na imagem para abrir o site ao vivo</b></sub>
   </p>
