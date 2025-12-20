@@ -7,7 +7,7 @@
 
 <a href="https://nimaiblanco.github.io/Portafolio/" target="_blank">
   <p align="center">
-    <img src="https://github.com/user-attachments/assets/d7e7bdd7-abd6-4e37-b590-30aebdaed1c5" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" alt="Visitar Portfólio Interativo" />
+    <img src="https://cdn.jsdelivr.net/gh/Nimaiblanco/Portafolio@main/assets/portafolio-animado.gif" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" alt="Portfólio Animado" />
     <br>
     <sub><b>✨ Experiência Interativa: Clique na imagem para abrir o site ao vivo</b></sub>
   </p>
@@ -21,7 +21,6 @@
 
 [![LinkedIn](https://img.shields.io/badge/LINKEDIN-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/blanconimai/)
 [![GitHub](https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Nimaiblanco/)
-[![Portfolio](https://img.shields.io/badge/PORTFOLIO-38bdf8?style=for-the-badge&logo=google-chrome&logoColor=white)](https://nimaiblanco.github.io/Portafolio/)
 
 <br>
 
