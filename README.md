@@ -7,7 +7,7 @@
 
 <a href="https://nimaiblanco.github.io/Portafolio/" target="_blank">
   <p align="center">
-    <img src="https://raw.githubusercontent.com/Nimaiblanco/Portafolio/main/assets/Apocalipsis.jpg" width="100%" style="border-radius: 12px; border: 3px solid #38bdf8;" alt="Visitar Portfólio Interativo" />
+    <img src="https://raw.githubusercontent.com/Nimaiblanco/Portafolio/main/assets/portafolio-animado.gif" width="100%" style="border-radius: 12px; border: 3px solid #38bdf8;" alt="Visitar Portfólio Interativo" />
     <br>
     <img src="https://img.shields.io/badge/▶_CLIQUE_AQUI_PARA_VER_A_EXPERIÊNCIA_AO_VIVO-38bdf8?style=for-the-badge" style="margin-top: 10px;" />
   </p>
