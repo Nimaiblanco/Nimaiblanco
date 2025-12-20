@@ -7,7 +7,7 @@
 
 <a href="https://nimaiblanco.github.io/Portafolio/" target="_blank">
   <p align="center">
-    <img src="assets/portfolio-animado.gif" width="100%" style="border-radius: 10px; border: 2px solid #38bdf8;" alt="Visitar Portfólio Interativo" />
+    <img src="assets/portafolio-animado.gif" width="100%" style="border-radius: 10px; border: 2px solid #38bdf8;" alt="Visitar Portfólio Interativo" />
     <br>
     <sub><b>✨ Experiência Interativa: Clique na imagem para abrir o site ao vivo</b></sub>
   </p>
