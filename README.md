@@ -5,11 +5,11 @@
 
 <br>
 
-[![Portafolio Animado](https://raw.githubusercontent.com/Nimaiblanco/Portafolio/main/assets/portafolio-animado.gif)](https://nimaiblanco.github.io/Portafolio/)
-
-<br>
-
-<sub><b>✨ Experiência Interativa: Clique na imagem para abrir o site ao vivo</b></sub>
+<a href="https://nimaiblanco.github.io/Portafolio/" target="_blank">
+  <img src="https://github.com/user-attachments/assets/a7087d76-f946-450d-9d4b-df8d66210316" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" alt="Portafolio Animado" />
+  <br>
+  <sub><b>✨ Experiência Interativa: Clique na imagem para abrir o site ao vivo</b></sub>
+</a>
 
 ---
 
