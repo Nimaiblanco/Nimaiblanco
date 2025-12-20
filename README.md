@@ -5,27 +5,24 @@
 
 <br>
 
-<a href="https://nimaiblanco.github.io/Portafolio/" target="_blank">
-  <p align="center">
-    <video src="https://github.com/Nimaiblanco/Portafolio/raw/main/assets/portafolio-animado.mp4" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" autoplay loop muted playsinline>
-    </video>
-    <br>
-    <sub><b>✨ Experiência Interativa: Clique na imagem para abrir o site ao vivo</b></sub>
-  </p>
-</a>
+<video src="https://github.com/Nimaiblanco/Portafolio/raw/main/assets/video-portafolio.mp4" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" autoplay loop muted playsinline>
+</video>
 
----
+<br>
 
 ## 🌐 [CLIQUE AQUI PARA VISITAR O PORTFÓLIO AO VIVO](https://nimaiblanco.github.io/Portafolio/)
+
+---
 
 <br>
 
 [![LinkedIn](https://img.shields.io/badge/LINKEDIN-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/blanconimai/)
 [![GitHub](https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Nimaiblanco/)
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-38bdf8?style=for-the-badge&logo=google-chrome&logoColor=white)](https://nimaiblanco.github.io/Portafolio/)
 
 <br>
 
-Este repositório contém o código do meu portfólio pessoal, projetado para demonstrar minhas habilidades em **Java, Kotlin e Spring Boot**.
+Este repositório contém o código do meu portfólio pessoal, projetado para demonstrar minhas habilidades em **Java, Kotlin e Spring Boot** através de uma interface moderna e performática.
 
 </div>
 
@@ -35,7 +32,8 @@ Este repositório contém o código do meu portfólio pessoal, projetado para de
 
 * **Backend & JVM:** Java, Kotlin, Spring Boot (Security/JWT/Data).
 * **Frontend:** JavaScript Puro (ES6+), HTML5 Semântico, CSS3 Moderno.
-* **DevOps:** Oracle SQL, Docker, Arquitetura MVC e REST APIs.
+* **Animações:** `Particles.js` para fundo interativo e `Intersection Observer`.
+* **DevOps & Data:** Oracle SQL, Docker, Arquitetura MVC e REST APIs.
 
 ---
 
@@ -54,5 +52,5 @@ Este repositório contém o código do meu portfólio pessoal, projetado para de
 
 ---
 <div align="center">
-© 2025 Blanco Nimai.
+© 2025 Blanco Nimai. Desenvolvido com foco em qualidade de código.
 </div>
