@@ -3,10 +3,6 @@
 
 [![Portafolio Animado](https://nimaiblanco.github.io/Portafolio/assets/portafolio-animado.gif)](https://nimaiblanco.github.io/Portafolio/)
 
-<p align="center">
-  <sub><b>✨ Experiência Interativa: Clique na imagem para abrir o site ao vivo</b></sub>
-</p>
-
 ---
 
 ## (https://nimaiblanco.github.io/Portafolio/)
