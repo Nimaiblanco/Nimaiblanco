@@ -7,15 +7,15 @@
 
 <a href="https://nimaiblanco.github.io/Portafolio/" target="_blank">
   <p align="center">
-    <img src="https://raw.githubusercontent.com/Nimaiblanco/Portafolio/main/assets/portafolio-animado.gif" width="100%" style="border-radius: 12px; border: 3px solid #38bdf8;" alt="Visitar Portfólio Interativo" />
+    <img src="assets/portafolio-animado.gif" width="100%" style="border-radius: 10px; border: 2px solid #38bdf8;" alt="Visitar Portfólio Interativo" />
     <br>
-    <img src="https://img.shields.io/badge/▶_CLIQUE_AQUI_PARA_VER_A_EXPERIÊNCIA_AO_VIVO-38bdf8?style=for-the-badge" style="margin-top: 10px;" />
+    <sub><b>✨ Experiência Interativa: Clique na imagem para abrir o site ao vivo</b></sub>
   </p>
 </a>
 
 ---
 
-## 🌐 [VISITAR PORTFÓLIO AO VIVO](https://nimaiblanco.github.io/Portafolio/)
+## 🌐 [CLIQUE AQUI PARA VISITAR O PORTFÓLIO AO VIVO](https://nimaiblanco.github.io/Portafolio/)
 
 <br>
 
@@ -25,26 +25,18 @@
 
 <br>
 
-Este repositorio contiene el código de mi portafolio personal, diseñado para demostrar mis habilidades en **Java, Kotlin y Spring Boot** a través de una interfaz moderna y performática.
+Este repositório contém o código do meu portfólio pessoal, projetado para demonstrar minhas habilidades em **Java, Kotlin e Spring Boot** através de uma interface moderna e performática.
 
 </div>
 
 ---
 
-## 💻 Tecnologías & Habilidades
+## 💻 Tecnologias & Habilidades
 
-* **Backend & JVM:** Java 17+, Kotlin, Spring Boot (Security/JWT/Data).
-* **Frontend:** JavaScript Puro (ES6+), HTML5 Semántico, CSS3 Moderno.
-* **Animaciones:** `Particles.js` para fondo interactivo e `Intersection Observer`.
-* **DevOps & Data:** Oracle SQL, Docker, Arquitectura MVC y REST APIs.
-
----
-
-## 🛠️ Destaques del Proyecto
-
-* **Performance Optimizada:** Implementación de `requestAnimationFrame` para fluidez total.
-* **Interactividad:** Canvas dinámico que reacciona al cursor, elevando la experiencia del usuario.
-* **UX/UI:** Diseño minimalista y responsivo enfocado en reclutadores IT.
+* **Backend & JVM:** Java, Kotlin, Spring Boot (Security/JWT/Data).
+* **Frontend:** JavaScript Puro (ES6+), HTML5 Semântico, CSS3 Moderno.
+* **Animações:** `Particles.js` para fundo interativo e `Intersection Observer`.
+* **DevOps & Data:** Oracle SQL, Docker, Arquitetura MVC e REST APIs.
 
 ---
 
@@ -56,12 +48,12 @@ Este repositorio contiene el código de mi portafolio personal, diseñado para d
 
 ---
 
-## 📩 Vamos a conectar
+## 📩 Vamos conectar?
 
 * **LinkedIn:** [linkedin.com/in/blanconimai](https://linkedin.com/in/blanconimai)
 * **Email:** Blanconimai@gmail.com
 
 ---
 <div align="center">
-© 2025 Blanco Nimai.
+© 2025 Blanco Nimai. Desenvolvido com foco em qualidade de código e experiência do usuário.
 </div>
