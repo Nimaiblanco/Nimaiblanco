@@ -7,9 +7,9 @@
 
 <a href="https://nimaiblanco.github.io/Portafolio/" target="_blank">
   <p align="center">
-    <img src="https://nimaiblanco.github.io/Portafolio/assets/portafolio-animado.gif" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" alt="Portafolio Animado" />
+    <img src="https://nimaiblanco.github.io/Portafolio/assets/portafolio-animado.gif?v=1.1" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" alt="Portafolio Animado" />
     <br>
-    <sub><b>✨ Experiencia Interactiva: Haz clic para abrir el sitio en vivo</b></sub>
+    <sub><b>✨ Experiencia Interativa: Haz clic para abrir el sitio en vivo</b></sub>
   </p>
 </a>
 
@@ -30,11 +30,11 @@ Este repositorio contiene el código de mi portafolio personal, diseñado para d
 
 ---
 
-## 💻 Tecnologías & Habilidades
+## 💻 Tecnologias & Habilidades
 
 * **Backend & JVM:** Java, Kotlin, Spring Boot (Security/JWT/Data).
 * **Frontend:** JavaScript Puro (ES6+), HTML5 Semântico, CSS3 Moderno.
-* **DevOps:** Oracle SQL, Docker, Arquitetura MVC y REST APIs.
+* **DevOps:** Oracle SQL, Docker, Arquitectura MVC y REST APIs.
 
 ---
 
