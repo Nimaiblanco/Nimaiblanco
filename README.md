@@ -7,10 +7,9 @@
 
 <a href="https://nimaiblanco.github.io/Portafolio/" target="_blank">
   <p align="center">
-    <video src="https://github.com/Nimaiblanco/Portafolio/raw/main/assets/video-portafolio.mp4" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" autoplay loop muted playsinline>
-    </video>
+    <img src="https://github.com/user-attachments/assets/d7e7bdd7-abd6-4e37-b590-30aebdaed1c5" width="100%" style="max-width: 900px; border-radius: 10px; border: 2px solid #38bdf8;" alt="Visitar Portfólio Interativo" />
     <br>
-    <sub><b>✨ Experiencia Interativa: Haz clic para abrir el sitio en vivo</b></sub>
+    <sub><b>✨ Experiência Interativa: Clique na imagem para abrir o site ao vivo</b></sub>
   </p>
 </a>
 
@@ -22,10 +21,11 @@
 
 [![LinkedIn](https://img.shields.io/badge/LINKEDIN-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/blanconimai/)
 [![GitHub](https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Nimaiblanco/)
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-38bdf8?style=for-the-badge&logo=google-chrome&logoColor=white)](https://nimaiblanco.github.io/Portafolio/)
 
 <br>
 
-Este repositorio contiene el código de mi portafolio personal, diseñado para demostrar mis habilidades en **Java, Kotlin y Spring Boot**.
+Este repositório contém o código do meu portfólio pessoal, projetado para demonstrar minhas habilidades em **Java, Kotlin e Spring Boot**.
 
 </div>
 
@@ -35,7 +35,7 @@ Este repositorio contiene el código de mi portafolio personal, diseñado para d
 
 * **Backend & JVM:** Java, Kotlin, Spring Boot (Security/JWT/Data).
 * **Frontend:** JavaScript Puro (ES6+), HTML5 Semântico, CSS3 Moderno.
-* **DevOps:** Oracle SQL, Docker, Arquitetura MVC y REST APIs.
+* **DevOps:** Oracle SQL, Docker, Arquitetura MVC e REST APIs.
 
 ---
 
